@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import * as bootstrap from 'bootstrap';
 
+//equivalente a esto App()
 ReactDOM.render(
   <React.StrictMode>
     <App />

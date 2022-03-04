@@ -8,6 +8,7 @@ function App() {
   return (
     <div className="App">
       <NabBar/>
+      <h2>Flowers and Herbs</h2>
     </div>
   );
 }

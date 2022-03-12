@@ -12,6 +12,7 @@ function App() {
       <Nabvar/>
       <h2>Flowers and Herbs</h2>
       <ItemsLIstContainer saludo= "Ei soy el contenedor de todas las imagenes"/>
+      
     </div>
   );
 }

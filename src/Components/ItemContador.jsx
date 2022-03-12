@@ -25,11 +25,10 @@ function ItemContador({stockInicial, stockMaximo}) {
   console.log (count)
   return (
     <div>
-        <p>tu Cliqueaste {count} veces</p>
         <button type="button" className="btn btn-success p-2 m-2" onClick={disminuir}> <DownArrow/> </button>
         <span>la cantidad de items es : {count}</span>
         <button type="button" className="btn btn-success p-2 m-2" onClick={aumenta}> <UpArrow/></button>
-        <button type="button" className="btn btn-success p-2 m-2"> Agregar al: <ShoppingCartIcon/></button>
+        <button type="button" className="btn btn-success p-2 m-2"> Agregar {count} al <ShoppingCartIcon/></button>
 
     </div>
   )

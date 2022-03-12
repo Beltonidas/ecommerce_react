@@ -11,7 +11,7 @@ function ItemContador({stockInicial, stockMaximo}) {
     if (count>= stockInicial && count<stockMaximo){
       setCount(count +1)
     } else
-    alert("no hay mas stock")
+    alert("No se puede agregar otro elemento, por lo que se termino el stock")
   }
 
   const disminuir = ()=> {
@@ -19,7 +19,7 @@ function ItemContador({stockInicial, stockMaximo}) {
     if(count> stockInicial)
     setCount(count -1)
     else
-    alert("no existe el stock negativo mann")
+    alert("¿Quiere poner un Stock negativo?")
   }
 
   console.log (count)

@@ -1,5 +1,5 @@
 import React from 'react'
-import CardWidget from './CardWidget'
+import CardWidget from '../CardWidget'
 //import ShoppingCartIcon from '../resources/icons/ShoppingCartIcon';
 
 

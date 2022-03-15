@@ -1,7 +1,7 @@
 import React, {useState}from 'react'
-import DownArrow from '../resources/icons/DownArrow';
-import UpArrow from '../resources/icons/UpArrow';
-import ShoppingCartIcon from '../resources/icons/ShoppingCartIcon';
+import DownArrow from '../../resources/icons/DownArrow'
+import UpArrow from '../../resources/icons/UpArrow';
+import ShoppingCartIcon from '../../resources/icons/ShoppingCartIcon';
 
 function ItemContador({stockInicial, stockMaximo}) {
     const [count, setCount] = useState(stockInicial); 

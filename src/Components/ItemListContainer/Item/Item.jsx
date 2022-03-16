@@ -1,4 +1,5 @@
 import React from 'react'
+import ItemContador from '../ItemContador'
 
 function Item({prod}) {
 
@@ -16,10 +17,12 @@ function Item({prod}) {
             <img src={prod.foto} className="rounded mx-auto d-block w-50 h-50" alt=""/>
             <div className="card-body">
                 <h5 className="card-title">Articulo: {prod.name}</h5>
-                <p className="card-text">Valor: {prod.price}</p>
+                <p className="card-text">Cantidades disponibles: {prod.cantidad}</p>
                 <a href="#hola" className="btn btn-success" onClick={eventoCompra}>Comprar</a>
             </div>
+            <ItemContador stockInicial= {1} stockMaximo = {prod.cantidad}/>
         </div>
+
     </div>
   )
 }

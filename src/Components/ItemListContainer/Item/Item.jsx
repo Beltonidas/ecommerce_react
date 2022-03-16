@@ -6,10 +6,6 @@ function Item({prod}) {
 
   console.log(prod)
 
-  const eventoCompra = ()=>{
-    const flor = prod.name
-    alert("usted quiere agregar: "+ flor+ "  al carrito? ")
-  }
 
   return (
     <div>
@@ -18,9 +14,8 @@ function Item({prod}) {
             <div className="card-body">
                 <h5 className="card-title">Articulo: {prod.name}</h5>
                 <p className="card-text">Cantidades disponibles: {prod.cantidad}</p>
-                <a href="#hola" className="btn btn-success" onClick={eventoCompra}>Comprar</a>
+                <ItemContador stockInicial= {1} stockMaximo = {prod.cantidad}/>
             </div>
-            <ItemContador stockInicial= {1} stockMaximo = {prod.cantidad}/>
         </div>
 
     </div>

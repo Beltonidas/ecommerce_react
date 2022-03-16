@@ -13,8 +13,10 @@ function ItemList({productos}) {
   </li>  );
 */
     return (
-      <div>
-        {productos.map((prod) => <Item prod={prod} /> )}
+      <div className='container-sm'>
+        {productos.map((elementoSimple) => 
+            <Item prod={elementoSimple} key={elementoSimple.id} /> ) 
+        }
       </div>
 
   )

@@ -16,17 +16,11 @@ function ItemsLIstContainer({saludo}) {
   }, [])
   
   let Arreglo = [];
-  
-
   prods.map(
     function(index){
       Arreglo.push(index);
     }
   )
-  /*Arreglo.forEach(function(element){
-    console.log ("el id: ", element.id, " y el dato es: ", element.categoria )
-  })*/
-
 
 
 

@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Nabvar/>
       <h2>Flowers and Herbs</h2>
-      <ItemsLIstContainer saludo= "Ei soy el contenedor de todas las imagenes"/>
+      <ItemsLIstContainer saludo= "Contenedor de imagenes"/>
     </div>
   );
 }

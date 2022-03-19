@@ -11,7 +11,8 @@ function ItemDetailContainer({identificacion}) {
 
     useEffect((identificacion)=>{
         GetItem(identificacion)
-            .then((resolve)=> setElement(resolve))
+            .State()
+            .then((elementSimple)=> setElement(elementSimple))
             .catch((rejert)=> console.log("Error de petición"))
     }, [identificacion])
 

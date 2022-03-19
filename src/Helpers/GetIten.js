@@ -25,10 +25,13 @@ export const GetItem = (identificacion)=>{
     const elementSimple = productos.find(element => element.id === identificacion);
     return (
 
-        new Promise(function(resolve, rejert){
-            setTimeout(function(){}, 2000);
-            resolve(elementSimple);
+        new Promise((resolve, rejert)=>{
+            setTimeout(()=>{
+                resolve(elementSimple);
+            }, 2000);
         })
+
+
     )
 
 

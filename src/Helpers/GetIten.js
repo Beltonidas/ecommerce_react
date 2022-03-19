@@ -1,4 +1,3 @@
-//Creo un arreglo de productos
 import dahilas from '../resources/Image/flor_1.png'
 import sunflower from '../resources/Image/flor_2.png'
 import lavanda from '../resources/Image/flor_3.png'
@@ -20,31 +19,19 @@ const productos = [
   { id: 9, categoria: 'flor', name: "Flor Roja", cantidad: 2      ,foto:redflower
  }
 ]
-export const getFetch = new Promise((resolve, reject)=>{
-  //acciones 
-  let condition = true
-  if (condition) {
-      setTimeout(() => {
-        resolve(productos)                  
-      }, 2000);
-  } else {
-      reject('400 - not found')        
-  }
-})
 
 
-const producto = { id: '1', categoria: 'Flor', name: "dahilas", price: 3   ,foto:dahilas}
+export const GetItem = (identificacion)=>{
+    const elementSimple = productos.find(element => element.id === identificacion);
+    return (
 
-export const getFetchOne = new Promise((resolve, reject)=>{
-    //acciones 
-    let condition = true
-    if (condition) {
-        setTimeout(() => {
-            resolve(producto)                    
-        }, 3000);
-    } else {
-        reject('400 - not found')        
-    }
-})
+        new Promise(function(resolve, rejert){
+            setTimeout(function(){}, 2000);
+            resolve(elementSimple);
+        })
+    )
 
 
+}
+
+export default GetItem;

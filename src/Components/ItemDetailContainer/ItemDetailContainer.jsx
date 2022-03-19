@@ -9,7 +9,7 @@ function ItemDetailContainer({identificacion}) {
 
     console.log("mi identificación es: "+ identificacion )
 
-    useEffect(()=>{
+    useEffect((identificacion)=>{
         GetItem(identificacion)
             .then((resolve)=> setElement(resolve))
             .catch((rejert)=> console.log("Error de petición"))

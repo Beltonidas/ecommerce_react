@@ -5,15 +5,14 @@ import ItemDetail from './ItemDetail/ItemDetail'
 function ItemDetailContainer({identificacion}) {
 
 
-    const [element, setElement] = useState();
+    const [element, setElement] = useState(1);
 
     console.log("mi identificación es: "+ identificacion )
 
-    useEffect((identificacion)=>{
+    useEffect(()=>{
         GetItem(identificacion)
-            .State()
             .then((elementSimple)=> setElement(elementSimple))
-            .catch((rejert)=> console.log("Error de petición"))
+            .catch((reject)=> console.log("Error de petición" + reject))
     }, [identificacion])
 
   
@@ -23,7 +22,7 @@ function ItemDetailContainer({identificacion}) {
 
 
     <div>
-        <ItemDetail item= {element}/>
+        <ItemDetail item= {element} />
     </div>
   )
 }

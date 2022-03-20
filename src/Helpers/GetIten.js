@@ -22,13 +22,17 @@ const productos = [
 
 
 export const GetItem = (identificacion)=>{
-    const elementSimple = productos.find(element => element.id === identificacion);
+    const elementSimple = productos.find(element => (element.id === identificacion));
     return (
 
-        new Promise((resolve, rejert)=>{
-            setTimeout(()=>{
-                resolve(elementSimple);
-            }, 2000);
+        new Promise((resolve, reject)=>{
+            if(elementSimple){
+                setTimeout(()=>{
+                    resolve(elementSimple);
+                }, 3000);
+            }else{
+                reject(new Error("Rechazado"))
+            }
         })
 
 

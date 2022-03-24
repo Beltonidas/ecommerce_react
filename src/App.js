@@ -12,24 +12,15 @@ import {
   Link,
   NavLink,
 } from "react-router-dom";
-
-function Home() {
-  return (
-    <div className="App">
-      <h2>Flowers and Herbs</h2>
-      <ItemsLIstContainer saludo="Contenedor de imagenes" />
-      {/*<ItemDetailContainer identificacion={1}/>*/}
-    </div>
-  );
-}
+import Home from "./Components/Home";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Nabvar />
-        <h2>Flowers and Herbs</h2>
         <Routes>
+          <Route path="/" exact element={<Home />} />
           <Route
             path="/category/:id"
             exact

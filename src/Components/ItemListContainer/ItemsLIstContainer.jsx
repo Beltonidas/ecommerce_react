@@ -6,8 +6,7 @@ import ItemList from "./ItemList";
 function ItemsLIstContainer({ saludo }) {
   //guardo mis productos en contexto una vez que llamo a la api
   const [prods, setProds] = useState([]);
-
-  const { categoryId } = useParams();
+  const { detalleId } = useParams();
 
   // Ejecuta solo una vez despues de renderizar los componenetes
   useEffect(() => {
@@ -16,6 +15,9 @@ function ItemsLIstContainer({ saludo }) {
       .catch((err) => console.log(err));
   }, []);
 
+  let params = useParams();
+  console.log(params);
+
   let Arreglo = [];
   prods.map(function (index) {
     Arreglo.push(index);
@@ -23,8 +25,9 @@ function ItemsLIstContainer({ saludo }) {
 
   return (
     <div>
+      <h4> Catalo de Productos </h4>
       <p>{saludo}</p>
-      <p>{categoryId}</p>
+      <p>{detalleId}</p>
       <ItemList productos={Arreglo} />
     </div>
   );

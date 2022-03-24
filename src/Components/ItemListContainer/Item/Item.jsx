@@ -17,7 +17,7 @@ function Item({ prod }) {
           <p className="card-text">Cantidades disponibles: {prod.cantidad}</p>
         </div>
         <div className="cart-footer">
-          <Link to={`Detalle/${prod.id}`}>
+          <Link to={`/Detalle/${prod.id}`}>
             <button type="button" className="btn btn-success p-2 m-2">
               Ver producto
             </button>

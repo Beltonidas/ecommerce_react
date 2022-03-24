@@ -36,10 +36,7 @@ function App() {
           <Route path="/OurFlowers" element={<OurFlowers />} />{" "}
           <Route path="/Blog" element={<Blog />} />{" "}
           <Route path="/Cart" element={<Cart />} />{" "}
-          <Route
-            path="/Detalle"
-            element={<ItemDetailContainer identificacion={4} />}
-          />{" "}
+          <Route path="/Detalle/:detalleId" element={<ItemDetailContainer />} />{" "}
         </Routes>{" "}
         <Footer />
       </Router>{" "}

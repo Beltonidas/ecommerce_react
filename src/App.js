@@ -13,6 +13,12 @@ import {
   NavLink,
 } from "react-router-dom";
 import Home from "./Components/Home";
+import Contact from "./Components/Contact";
+import AboutUs from "./Components/AboutUs";
+import Blog from "./Components/Blog";
+import Experience from "./Components/Experience";
+import OurFlowers from "./Components/OurFlowers";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -26,9 +32,13 @@ function App() {
             exact
             element={<ItemsLIstContainer saludo="hola" />}
           />
-
           <Route path="/item/:id" element={<ItemDetailContainer />} />
-          <Route path="/login" element={<h1>Hola te queres loguear</h1>} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/Blog" element={<Blog />} />
+          <Route path="/Experience" element={<Experience />} />
+          <Route path="/OurFlowers" element={<OurFlowers />} />
+          <Route path="/Footer" element={<Footer />} />
         </Routes>
       </Router>
     </div>

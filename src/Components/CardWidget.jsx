@@ -1,13 +1,12 @@
-import React from 'react'
-import ShoppingCartIcon from '../resources/icons/ShoppingCartIcon';
+import React from "react";
+import ShoppingCartIcon from "../resources/icons/ShoppingCartIcon";
 
 function CardWidget() {
-  
   return (
     <>
-     <ShoppingCartIcon />
+      <ShoppingCartIcon />
     </>
   );
 }
 
-export default CardWidget
+export default CardWidget;

@@ -1,5 +1,5 @@
 import React from "react";
-import ItemContador from "../ItemContador";
+import { Link } from "react-router-dom";
 
 function Item({ prod }) {
   console.log(prod);
@@ -15,7 +15,13 @@ function Item({ prod }) {
         <div className="card-body">
           <h5 className="card-title">Articulo: {prod.name}</h5>
           <p className="card-text">Cantidades disponibles: {prod.cantidad}</p>
-          <ItemContador stockInicial={1} stockMaximo={prod.cantidad} />
+        </div>
+        <div className="cart-footer">
+          <Link to={`Detalle/${prod.id}`}>
+            <button type="button" className="btn btn-success p-2 m-2">
+              Ver producto
+            </button>
+          </Link>
         </div>
       </div>
     </div>

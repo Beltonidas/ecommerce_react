@@ -8,16 +8,14 @@ function ItemsLIstContainer({ saludo }) {
   const [prods, setProds] = useState([]);
   const { detalleId } = useParams();
 
+  console.log(detalleId);
+
   // Ejecuta solo una vez despues de renderizar los componenetes
   useEffect(() => {
     getFetch // simulacion a un llamado a una api
       .then((resp) => setProds(resp))
       .catch((err) => console.log(err));
   }, []);
-
-  let params = useParams();
-  console.log(params);
-
   let Arreglo = [];
   prods.map(function (index) {
     Arreglo.push(index);

@@ -25,11 +25,10 @@ function App() {
         <Routes>
           <Route path="/home" exact element={<Home />} />{" "}
           <Route
-            path="/category/:id"
+            path="/Category/:id"
             exact
-            element={<ItemsLIstContainer saludo="hola" />}
+            element={<ItemsLIstContainer filtro="" />}
           />{" "}
-          <Route path="/item/:id" element={<ItemDetailContainer />} />{" "}
           <Route path="/Contact" element={<Contact />} />{" "}
           <Route path="/AboutUs" element={<AboutUs />} />{" "}
           <Route path="/Experience" element={<Experience />} />{" "}

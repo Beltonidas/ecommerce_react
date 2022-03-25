@@ -13,7 +13,7 @@ function Item({ prod }) {
           alt=""
         />
         <div className="card-body">
-          <h5 className="card-title">Articulo: {prod.name}</h5>
+          <h5 className="card-title">{prod.name}</h5>
           <p className="card-text">Cantidades disponibles: {prod.cantidad}</p>
         </div>
         <div className="cart-footer">

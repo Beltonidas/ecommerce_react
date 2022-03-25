@@ -78,16 +78,16 @@ const productos = [
   },
   {
     id: 10,
-    categoria: "flor",
-    name: "sun Flower",
+    categoria: "Exp",
+    name: "Ride a Horse",
     cantidad: 27,
     foto: Exp_1,
     price: 20,
   },
   {
     id: 11,
-    categoria: "flor",
-    name: "Mesa de flores",
+    categoria: "Exp",
+    name: "Visit a Farm",
     cantidad: 2,
     foto: Exp_2,
     price: 20,
@@ -124,3 +124,27 @@ export const getFetchOne = new Promise((resolve, reject) => {
     reject("400 - not found");
   }
 });
+
+/*function filtro(tipoDato) {
+  const result = [];
+  producto.forEach((element) => {
+    if (element.categoria === tipoDato) result.push(element);
+  });
+
+  return result;
+}
+
+export const getDatos = (tipoDato) => {
+  const datoFiltrado = filtro(tipoDato);
+  return new Promise((resolve, reject) => {
+    if (datoFiltrado) {
+      setTimeout(() => {
+        resolve(datoFiltrado);
+      }, 1000);
+    } else {
+      reject(new Error("Rechazado"));
+    }
+  });
+};
+
+export default getDatos;*/

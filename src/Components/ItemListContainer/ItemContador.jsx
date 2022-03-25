@@ -27,6 +27,7 @@ function ItemContador({ stockInicial, stockMaximo }) {
   console.log(count);
   return (
     <div>
+      <span>la cantidad de items es : {count}</span>
       <button
         type="button"
         className="btn btn-success p-2 m-2"
@@ -35,7 +36,6 @@ function ItemContador({ stockInicial, stockMaximo }) {
         {" "}
         <DownArrow />{" "}
       </button>
-      <span>la cantidad de items es : {count}</span>
       <button
         type="button"
         className="btn btn-success p-2 m-2"

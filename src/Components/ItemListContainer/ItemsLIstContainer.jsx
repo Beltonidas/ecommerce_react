@@ -8,7 +8,7 @@ function ItemsLIstContainer({ saludo }) {
   const [prods, setProds] = useState([]);
   const { detalleId } = useParams();
 
-  console.log(detalleId);
+  console.log("Mi parametro dinamico es----> " + detalleId);
 
   // Ejecuta solo una vez despues de renderizar los componenetes
   useEffect(() => {

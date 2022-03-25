@@ -7,6 +7,8 @@ import ramo2 from "../resources/Image/flor_5.png";
 import ramo3 from "../resources/Image/flor_6.png";
 import tableFlowers from "../resources/Image/flor_7.png";
 import redflower from "../resources/Image/flor_8.png";
+import Exp_1 from "../resources/Image/Experiencia_1.png";
+import Exp_2 from "../resources/Image/Experiencia_2.png";
 
 const productos = [
   { id: 1, categoria: "flor", name: "dahilas", cantidad: 37, foto: dahilas },
@@ -16,14 +18,23 @@ const productos = [
     name: "sun Flower",
     cantidad: 27,
     foto: sunflower,
+    price: 20,
   },
-  { id: 3, categoria: "flor", name: "Lavanda", cantidad: 40, foto: lavanda },
+  {
+    id: 3,
+    categoria: "flor",
+    name: "Lavanda",
+    cantidad: 40,
+    foto: lavanda,
+    price: 20,
+  },
   {
     id: 4,
     categoria: "flor",
     name: "Ramo de Flores 1",
     cantidad: 55,
     foto: bouquet,
+    price: 20,
   },
   {
     id: 5,
@@ -31,6 +42,7 @@ const productos = [
     name: "Ramo de Flores 2",
     cantidad: 11,
     foto: ramo2,
+    price: 20,
   },
   {
     id: 6,
@@ -38,6 +50,7 @@ const productos = [
     name: "Ramo de Flores 3",
     cantidad: 19,
     foto: ramo3,
+    price: 20,
   },
   {
     id: 7,
@@ -45,6 +58,7 @@ const productos = [
     name: "Mesa de flores",
     cantidad: 2,
     foto: tableFlowers,
+    price: 20,
   },
   {
     id: 8,
@@ -52,8 +66,32 @@ const productos = [
     name: "Mesa de flores",
     cantidad: 2,
     foto: tableFlowers,
+    price: 20,
   },
-  { id: 9, categoria: "flor", name: "Flor Roja", cantidad: 2, foto: redflower },
+  {
+    id: 9,
+    categoria: "flor",
+    name: "Flor Roja",
+    cantidad: 2,
+    foto: redflower,
+    price: 20,
+  },
+  {
+    id: 10,
+    categoria: "flor",
+    name: "sun Flower",
+    cantidad: 27,
+    foto: Exp_1,
+    price: 20,
+  },
+  {
+    id: 11,
+    categoria: "flor",
+    name: "Mesa de flores",
+    cantidad: 2,
+    foto: Exp_2,
+    price: 20,
+  },
 ];
 export const getFetch = new Promise((resolve, reject) => {
   //acciones

@@ -1,30 +1,27 @@
-import React, {useEffect,useState} from 'react'
-import GetItem from '../../Helpers/GetIten';
-import ItemDetail from './ItemDetail/ItemDetail'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import GetItem from "../../Helpers/GetIten";
+import ItemDetail from "./ItemDetail/ItemDetail";
 
-function ItemDetailContainer({identificacion}) {
+function ItemDetailContainer() {
+  const [element, setElement] = useState(1);
+  const { detalleId } = useParams();
 
+  let paramDinamic = Number(detalleId);
+  console.log("mi parametro es" + paramDinamic);
 
-    const [element, setElement] = useState(1);
-
-    console.log("mi identificación es: "+ identificacion )
-
-    useEffect(()=>{
-        GetItem(identificacion)
-            .then((elementSimple)=> setElement(elementSimple))
-            .catch((reject)=> console.log("Error de petición" + reject))
-    }, [identificacion])
-
-  
-    console.log(element);
-    
-    return (
-
-
+  useEffect(() => {
+    if (paramDinamic != null) {
+      GetItem(paramDinamic)
+        .then((elementSimple) => setElement(elementSimple))
+        .catch((reject) => console.log("Error de petición" + reject));
+    }
+  }, [paramDinamic]);
+  return (
     <div>
-        <ItemDetail item= {element} />
+      <ItemDetail item={element} />
     </div>
-  )
+  );
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

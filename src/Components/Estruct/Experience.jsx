@@ -1,5 +1,5 @@
 import React from "react";
-import ItemsLIstContainer from "./ItemListContainer/ItemsLIstContainer";
+import ItemsLIstContainer from "../ItemListContainer/ItemsLIstContainer";
 
 function Experience() {
   return (

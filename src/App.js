@@ -3,16 +3,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import * as bootstrap from "bootstrap";
 import Nabvar from "./Components/NabVar/Nabvar";
 import ItemsLIstContainer from "./Components/ItemListContainer/ItemsLIstContainer";
-import ItemContador from "./Components/ItemListContainer/ItemContador";
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Components/Home";
-import Contact from "./Components/Contact";
-import AboutUs from "./Components/AboutUs";
-import Blog from "./Components/Blog";
-import Experience from "./Components/Experience";
-import OurFlowers from "./Components/OurFlowers";
-import Footer from "./Components/Footer";
+import Home from "./Components/Estruct/Home";
+import Contact from "./Components/Estruct/Contact";
+import AboutUs from "./Components/Estruct/AboutUs";
+import Blog from "./Components/Estruct/Blog";
+import Experience from "./Components/Estruct/Experience";
+import OurFlowers from "./Components/Estruct/OurFlowers";
+import Footer from "./Components/Estruct/Footer";
 import Cart from "./Components/CarritoCompra/Cart";
 
 function App() {

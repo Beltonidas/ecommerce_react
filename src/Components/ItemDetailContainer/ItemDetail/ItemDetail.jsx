@@ -5,15 +5,18 @@ function ItemDetail({ item }) {
   console.log(item);
   return (
     <div className="container">
-      <h3>{item.categoria}</h3>
-      <img
-        src={item.foto}
-        className="rounded mx-auto d-block w-50 h-50"
-        alt=""
-      />
-      <h3>{item.name}</h3>
-      <h6>Price: {item.price} USD</h6>
-      <ItemContador stockInicial={1} stockMaximo={item.cantidad} />
+      <h2>{item.categoria}</h2>
+      <div className="row">
+        <div className="col-6">
+          <h3>{item.name}</h3>
+          <img src={item.foto} className="rounded  w-100" alt="" />
+          <p>Descripcion simple</p>
+        </div>
+        <div className="col-5">
+          <h6>Price: {item.price} USD</h6>
+          <ItemContador stockInicial={1} stockMaximo={item.cantidad} />
+        </div>
+      </div>
     </div>
   );
 }

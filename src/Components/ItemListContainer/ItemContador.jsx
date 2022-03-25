@@ -27,31 +27,38 @@ function ItemContador({ stockInicial, stockMaximo }) {
   console.log(count);
   return (
     <div>
-      <span>la cantidad de items es : {count}</span>
-      <button
-        type="button"
-        className="btn btn-success p-2 m-2"
-        onClick={disminuir}
-      >
-        {" "}
-        <DownArrow />{" "}
-      </button>
-      <button
-        type="button"
-        className="btn btn-success p-2 m-2"
-        onClick={aumenta}
-      >
-        {" "}
-        <UpArrow />
-      </button>
-      <button
-        type="button"
-        className="btn btn-success p-2 m-2"
-        onClick={dispararEvento}
-      >
-        {" "}
-        Agregar {count} al <ShoppingCartIcon />
-      </button>
+      <div className="d-flex flex-column bd-highlight mb-3">
+        <div className=" bd-highlight">
+          <span>la cantidad de unidad: {count}</span>
+        </div>
+        <div className=" bd-highlight">
+          <button
+            type="button"
+            className="btn btn-success p-2 m-2"
+            onClick={disminuir}
+          >
+            {" "}
+            <DownArrow />{" "}
+          </button>
+          <button
+            type="button"
+            className="btn btn-success p-2 m-2"
+            onClick={aumenta}
+          >
+            {" "}
+            <UpArrow />
+          </button>
+        </div>
+        <div className="p-2 bd-highlight">
+          <button
+            type="button"
+            className="btn btn-success p-2 m-2"
+            onClick={dispararEvento}
+          >
+            Agregar {count} al <ShoppingCartIcon />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

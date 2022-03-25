@@ -5,7 +5,7 @@ function OurFlowers() {
   return (
     <div>
       <h1>Flowers</h1>
-      <ItemsLIstContainer filtro={"flor"} />
+      <ItemsLIstContainer filtro={"Flor"} />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DownArrow from "../../resources/icons/DownArrow";
 import UpArrow from "../../resources/icons/UpArrow";
 import ShoppingCartIcon from "../../resources/icons/ShoppingCartIcon";
+import DinamicButton from "../Botones/DinamicButton";
 
 function ItemContador({ stockInicial, stockMaximo }) {
   const [count, setCount] = useState(stockInicial);
@@ -42,21 +43,15 @@ function ItemContador({ stockInicial, stockMaximo }) {
           </button>
           <button
             type="button"
-            className="btn btn-success p-2 m-2"
+            className="btn btn-success  p-2 m-2"
             onClick={aumenta}
           >
             {" "}
             <UpArrow />
           </button>
         </div>
-        <div className="p-2 bd-highlight">
-          <button
-            type="button"
-            className="btn btn-success p-2 m-2"
-            onClick={dispararEvento}
-          >
-            Agregar {count} al <ShoppingCartIcon />
-          </button>
+        <div className="  bd-highlight">
+          <DinamicButton />
         </div>
       </div>
     </div>

@@ -11,10 +11,10 @@ import Exp_1 from "../resources/Image/Experiencia_1.png";
 import Exp_2 from "../resources/Image/Experiencia_2.png";
 
 const productos = [
-  { id: 1, categoria: "flor", name: "dahilas", cantidad: 37, foto: dahilas },
+  { id: 1, categoria: "Flor", name: "dahilas", cantidad: 37, foto: dahilas },
   {
     id: 2,
-    categoria: "flor",
+    categoria: "Flor",
     name: "sun Flower",
     cantidad: 27,
     foto: sunflower,
@@ -22,7 +22,7 @@ const productos = [
   },
   {
     id: 3,
-    categoria: "flor",
+    categoria: "Flor",
     name: "Lavanda",
     cantidad: 40,
     foto: lavanda,
@@ -30,7 +30,7 @@ const productos = [
   },
   {
     id: 4,
-    categoria: "flor",
+    categoria: "Flor",
     name: "Ramo de Flores 1",
     cantidad: 55,
     foto: bouquet,
@@ -38,7 +38,7 @@ const productos = [
   },
   {
     id: 5,
-    categoria: "flor",
+    categoria: "Flor",
     name: "Ramo de Flores 2",
     cantidad: 11,
     foto: ramo2,
@@ -46,7 +46,7 @@ const productos = [
   },
   {
     id: 6,
-    categoria: "flor",
+    categoria: "Flor",
     name: "Ramo de Flores 3",
     cantidad: 19,
     foto: ramo3,
@@ -54,7 +54,7 @@ const productos = [
   },
   {
     id: 7,
-    categoria: "flor",
+    categoria: "Flor",
     name: "Mesa de flores",
     cantidad: 2,
     foto: tableFlowers,
@@ -62,7 +62,7 @@ const productos = [
   },
   {
     id: 8,
-    categoria: "flor",
+    categoria: "Flor",
     name: "Mesa de flores",
     cantidad: 2,
     foto: tableFlowers,
@@ -70,7 +70,7 @@ const productos = [
   },
   {
     id: 9,
-    categoria: "flor",
+    categoria: "Flor",
     name: "Flor Roja",
     cantidad: 2,
     foto: redflower,

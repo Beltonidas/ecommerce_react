@@ -13,6 +13,7 @@ import Experience from "./Components/Estruct/Experience";
 import OurFlowers from "./Components/Estruct/OurFlowers";
 import Footer from "./Components/Estruct/Footer";
 import Cart from "./Components/CarritoCompra/Cart";
+import Loading from "./Helpers/Loading";
 
 function App() {
   return (

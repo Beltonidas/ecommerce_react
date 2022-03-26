@@ -8,10 +8,7 @@ const InputCount = () => {
     <div class="row">
       <div class="col">
         <Link to="/Cart">
-          <button
-            className="btn btn-success p-2 m-2"
-            onClick={() => console.log("ir a cart")}
-          >
+          <button className="btn btn-success p-2 m-2">
             Ir al Carrito <CardWidget />
           </button>
         </Link>

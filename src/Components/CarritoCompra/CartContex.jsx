@@ -8,6 +8,9 @@ function CartContexProvider({ children }) {
   const addToCart = (item) => {
     setCartList([...cartList, item]);
   };
+
+
+  console.log("mi cartList es: ", cartList)
   return (
     <CartContex.Provider value={(cartList, addToCart)}>
       {children}

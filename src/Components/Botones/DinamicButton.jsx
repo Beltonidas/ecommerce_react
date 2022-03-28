@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import CardWidget from "../CardWidget";
-import { useCartContex } from "../CarritoCompra/CartContex";
 
 const InputCount = () => {
   return (
@@ -28,12 +27,20 @@ const InputCount = () => {
   );
 };
 
-const ButtonCount = ({ handleInter }) => {
+const ButtonCount = ({ handleInter, count, addCart }) => {
+  console.log ("en el boton de agregar, mi valor de cont es: "+ count);
+  const addItemCart =()=>{
+    addCart(count);
+    console.log("Precione el boton, con el valor de: ", count);
+  }
+
+
   return (
-    <button
+      <button
       className="btn btn-success p-2 m-2"
       onClick={() => {
         handleInter();
+        addItemCart();
       }}
     >
       Agregar al carrito
@@ -41,7 +48,10 @@ const ButtonCount = ({ handleInter }) => {
   );
 };
 
-function DinamicButton() {
+function DinamicButton({addCart, count}) {
+
+  console.log("el valor de count es: "+count);
+
   const [typeButton, setTypeButton] = useState("button");
 
   const handleInter = () => {
@@ -51,7 +61,7 @@ function DinamicButton() {
   return (
     <div>
       {typeButton === "button" ? (
-        <ButtonCount handleInter={handleInter} />
+        <ButtonCount handleInter={handleInter} count={count} addCart={addCart} />
       ) : (
         <InputCount />
       )}

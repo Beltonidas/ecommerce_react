@@ -4,10 +4,7 @@ import UpArrow from "../../resources/icons/UpArrow";
 import DinamicButton from "../Botones/DinamicButton";
 import { useCartContex } from "../CarritoCompra/CartContex";
 
-function ItemContador({ stockInicial, stockMaximo, addCart, itemProp }) {
-  //Contexto del carrito
-  const { addToCart } = useCartContex();
-
+function ItemContador({ stockInicial, stockMaximo, addCart }) {
   //Logica para controlar el stock
   const [count, setCount] = useState(stockInicial);
   // función flecha que aumenta el valor de la función "setCount"
@@ -24,12 +21,10 @@ function ItemContador({ stockInicial, stockMaximo, addCart, itemProp }) {
     else alert("¿Quiere poner un Stock negativo?");
   };
 
-  console.log("mi item es:", itemProp);
-
-  const agregar = () => {
-    addCart(count);
-  };
-
+  const agregar =()=>{
+      addCart(count);
+      console.log("agregue al carrito el valor:", count)
+  }
   //Logica para agregar items al carrito
   return (
     <div>
@@ -56,11 +51,12 @@ function ItemContador({ stockInicial, stockMaximo, addCart, itemProp }) {
           </button>
         </div>
         <div className="  bd-highlight">
-          <DinamicButton />
+          <DinamicButton addCart={addCart} count={count} />
         </div>
-
-        <button onClick={agregar}>A ver que pasa aca</button>
       </div>
+      <button onClick={agregar}>
+        probar boton
+      </button>
     </div>
   );
 }

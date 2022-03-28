@@ -2,13 +2,13 @@ import { useCartContex } from "../../CarritoCompra/CartContex";
 import ItemContador from "../../ItemListContainer/ItemContador";
 
 function ItemDetail({ item }) {
-  const { addToCart } = useCartContex();
+  const { addToCart, cartList } = useCartContex();
 
   const addCart = (cant) => {
-    console.log(cant);
-    console.log(item);
     addToCart({ ...item, cantidad: cant });
   };
+
+  console.log("mi cartList", cartList);
   console.log(item);
   return (
     <div className="container">
@@ -29,7 +29,6 @@ function ItemDetail({ item }) {
             stockInicial={1}
             stockMaximo={item.cantidad}
             addCart={addCart}
-            itemProp={item}
           />
         </div>
       </div>

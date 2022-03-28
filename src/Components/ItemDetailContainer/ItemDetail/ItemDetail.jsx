@@ -1,7 +1,14 @@
-import React from "react";
+import { useCartContex } from "../../CarritoCompra/CartContex";
 import ItemContador from "../../ItemListContainer/ItemContador";
 
 function ItemDetail({ item }) {
+  const { addToCart } = useCartContex();
+
+  const addCart = (cant) => {
+    console.log(cant);
+    console.log(item);
+    addToCart({ ...item, cantidad: cant });
+  };
   console.log(item);
   return (
     <div className="container">
@@ -18,7 +25,12 @@ function ItemDetail({ item }) {
         </div>
         <div className="col-2">
           <h6>Price: {item.price} USD</h6>
-          <ItemContador stockInicial={1} stockMaximo={item.cantidad} />
+          <ItemContador
+            stockInicial={1}
+            stockMaximo={item.cantidad}
+            addCart={addCart}
+            itemProp={item}
+          />
         </div>
       </div>
     </div>

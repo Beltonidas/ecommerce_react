@@ -1,9 +1,16 @@
 import React from "react";
 
-function Loading() {
+function Loading({ texto }) {
   return (
-    <div class="d-flex justify-content-center">
-      <div class="spinner-border" role="status">
+    <div>
+      <h3>{texto}</h3>
+      <div className="spinner-grow text-success m-2" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div className="spinner-grow text-success m-2" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div className="spinner-grow text-success m-2" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>

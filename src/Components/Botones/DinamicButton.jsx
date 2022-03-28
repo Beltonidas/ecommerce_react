@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import CardWidget from "../CardWidget";
+import { useCartContex } from "../CarritoCompra/CartContex";
 
 const InputCount = () => {
   return (
@@ -29,7 +30,12 @@ const InputCount = () => {
 
 const ButtonCount = ({ handleInter }) => {
   return (
-    <button className="btn btn-success p-2 m-2" onClick={handleInter}>
+    <button
+      className="btn btn-success p-2 m-2"
+      onClick={() => {
+        handleInter();
+      }}
+    >
       Agregar al carrito
     </button>
   );

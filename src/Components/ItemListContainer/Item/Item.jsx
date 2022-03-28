@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Item({ prod }) {
-  console.log(prod);
-
   return (
     <div>
       <div className="card" style={{ height: "30rem" }}>

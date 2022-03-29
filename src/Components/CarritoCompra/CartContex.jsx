@@ -9,10 +9,29 @@ function CartContexProvider({ children }) {
     setCartList([...cartList, item]);
   };
 
+  const removeElementCartId = (id) => {
+    cartList.filter((element) => element.id === id);
+  };
 
-  console.log("mi cartList es: ", cartList)
+  const clearCartList = () => {
+    setCartList([]);
+  };
+
+  const isInCart = (id) => {
+    cartList.find((element) => element.id === id);
+  };
+
+  console.log("mi cartList es: ", cartList);
   return (
-    <CartContex.Provider value={(cartList, addToCart)}>
+    <CartContex.Provider
+      value={{
+        cartList,
+        addToCart,
+        removeElementCartId,
+        clearCartList,
+        isInCart,
+      }}
+    >
       {children}
     </CartContex.Provider>
   );

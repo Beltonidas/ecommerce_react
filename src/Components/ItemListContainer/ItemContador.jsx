@@ -20,11 +20,6 @@ function ItemContador({ stockInicial, stockMaximo, addCart }) {
     if (count > stockInicial) setCount(count - 1);
     else alert("¿Quiere poner un Stock negativo?");
   };
-
-  const agregar =()=>{
-      addCart(count);
-      console.log("agregue al carrito el valor:", count)
-  }
   //Logica para agregar items al carrito
   return (
     <div>
@@ -54,9 +49,6 @@ function ItemContador({ stockInicial, stockMaximo, addCart }) {
           <DinamicButton addCart={addCart} count={count} />
         </div>
       </div>
-      <button onClick={agregar}>
-        probar boton
-      </button>
     </div>
   );
 }

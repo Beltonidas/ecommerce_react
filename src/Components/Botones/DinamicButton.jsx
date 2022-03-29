@@ -15,12 +15,7 @@ const InputCount = () => {
       </div>
       <div class="col">
         <Link to="/Home">
-          <button
-            className="btn btn-success p-2 m-2"
-            onClick={() => console.log("seguir comprando")}
-          >
-            Seguir comprando
-          </button>
+          <button className="btn btn-success p-2 m-2">Seguir comprando</button>
         </Link>
       </div>
     </div>
@@ -28,15 +23,12 @@ const InputCount = () => {
 };
 
 const ButtonCount = ({ handleInter, count, addCart }) => {
-  console.log ("en el boton de agregar, mi valor de cont es: "+ count);
-  const addItemCart =()=>{
+  const addItemCart = () => {
     addCart(count);
-    console.log("Precione el boton, con el valor de: ", count);
-  }
-
+  };
 
   return (
-      <button
+    <button
       className="btn btn-success p-2 m-2"
       onClick={() => {
         handleInter();
@@ -48,10 +40,7 @@ const ButtonCount = ({ handleInter, count, addCart }) => {
   );
 };
 
-function DinamicButton({addCart, count}) {
-
-  console.log("el valor de count es: "+count);
-
+function DinamicButton({ addCart, count }) {
   const [typeButton, setTypeButton] = useState("button");
 
   const handleInter = () => {
@@ -61,7 +50,11 @@ function DinamicButton({addCart, count}) {
   return (
     <div>
       {typeButton === "button" ? (
-        <ButtonCount handleInter={handleInter} count={count} addCart={addCart} />
+        <ButtonCount
+          handleInter={handleInter}
+          count={count}
+          addCart={addCart}
+        />
       ) : (
         <InputCount />
       )}

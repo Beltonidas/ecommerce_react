@@ -9,19 +9,25 @@ function CartContexProvider({ children }) {
     setCartList([...cartList, item]);
   };
 
-  const removeElementCartId = (id) => {
-    cartList.filter((element) => element.id === id);
+  const removeElementCartId = (idParamer) => {
+    const newCartList = cartList.filter((element)=> element.id !== idParamer)
+    setCartList (newCartList);
   };
 
   const clearCartList = () => {
+    console.log("entre a este metodo");
     setCartList([]);
   };
 
-  const isInCart = (id) => {
-    cartList.find((element) => element.id === id);
+  function isInCart(id){
+    cartList.forEach(element => {
+      if(element.id === id){
+        return true;
+      }
+    });
+    return false;
   };
 
-  console.log("mi cartList es: ", cartList);
   return (
     <CartContex.Provider
       value={{

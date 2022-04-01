@@ -11,7 +11,7 @@ import Exp_1 from "../resources/Image/Experiencia_1.png";
 import Exp_2 from "../resources/Image/Experiencia_2.png";
 
 const productos = [
-  { id: 1, categoria: "Flor", name: "dahilas", cantidad: 37, foto: dahilas },
+  { id: 1, categoria: "Flor", name: "dahilas", cantidad: 37, foto: dahilas, price: 20},
   {
     id: 2,
     categoria: "Flor",

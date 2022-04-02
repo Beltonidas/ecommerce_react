@@ -7,21 +7,30 @@ function CartContexProvider({ children }) {
   const [cartList, setCartList] = useState([]);
 
   const addToCart = (item) => {
-    //solucionar este bug para agregar elementos repetidos al carrto
-    /*const idParamer = item.id;
-    const pos = isInCart(idParamer);
-    console.log("las pos es: ", pos);
-    if (pos >= 0) {
-      cartList[pos].catidad = cartList[pos].catidad + item.cantidad;
-      const newArray = [...cartList];
-      setCartList(newArray);
-    } else*/
-    setCartList([...cartList, item]);
+    if (isInCart(item.id)) {
+      const index = cartList.findIndex((element) => element.id === item.id);
+      const oldCant = cartList[index].cantidad;
+      console.log("mi cantidad vieja es: ", oldCant);
+      const newCant = oldCant + item.cantidad;
+      console.log("mi cantidad nueva es: ", newCant);
+      cartList[index].cantidad = newCant;
+      const newCartList = [...cartList];
+      setCartList(newCartList);
+    } else {
+      setCartList([...cartList, item]);
+    }
   };
 
   const removeElementCartId = (idParamer) => {
-    const newCartList = cartList.filter((element) => element.id !== idParamer);
-    setCartList(newCartList);
+    if (isInCart(idParamer)) {
+      console.log("entre aca");
+      const newCartList = cartList.filter(
+        (element) => element.id !== idParamer
+      );
+      setCartList(newCartList);
+    } else {
+      console.log("no encontre elemento");
+    }
   };
 
   const clearCartList = () => {
@@ -30,26 +39,7 @@ function CartContexProvider({ children }) {
   };
 
   const isInCart = (idParamer) => {
-    let it = 0;
-    if (cartList.length === 0) {
-      console.log("pase por aca");
-    }
-    /*if (cartList.length === 0) {
-      console.log("pase por aca");
-    } else {
-      while (it <= cartList.length) {
-        if (cartList[it].id === idParamer) {
-          console.log("mi id esta en la pos: ", it);
-        } else it++;
-      }
-      console.log("no encontre id ");
-    }*/
-    /*cartList.forEach(element => {
-      if(element.id === id){
-        return true;
-      }
-    });
-    return false; */
+    return cartList.some((element) => element.id === idParamer);
   };
 
   return (

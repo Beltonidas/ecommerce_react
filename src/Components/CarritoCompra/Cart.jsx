@@ -24,28 +24,18 @@ function Cart() {
     setSumTotalCart(sumaTotal);
   }, [cartList]);
 
-  const deleteElement = (idParamer) => {
-    console.log(cartList);
-    removeElementCartId(idParamer);
-    console.log(cartList);
-  };
-
-  const sumCart = () => {
-    let sumaTotal = 0;
-    cartList.forEach((element) => {
-      sumaTotal = sumaTotal + element.price * element.cantidad;
-    });
-    console.log(sumaTotal);
-  };
-
   return (
     <div className="container">
       <h1>Carrito de compras</h1>
       <ul>{listItemCartList}</ul>
       <div class="d-flex flex-column bd-highlight">
         <div class="p-2 bd-highlight">
-          <button type="button" className="btn btn-success" onClick={sumCart}>
-            pueba de precio total
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={removeElementCartId(3)}
+          >
+            Prueba de borrado de elemento
           </button>
         </div>
         <div class="p-2 bd-highlight">
@@ -58,9 +48,6 @@ function Cart() {
           </button>
         </div>
       </div>
-
-      <button onClick={isInCart(0)}>prueba de id</button>
-
       <span>La suma es: {sumTotalCart}</span>
     </div>
   );

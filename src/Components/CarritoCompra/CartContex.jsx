@@ -10,9 +10,7 @@ function CartContexProvider({ children }) {
     if (isInCart(item.id)) {
       const index = cartList.findIndex((element) => element.id === item.id);
       const oldCant = cartList[index].cantidad;
-      console.log("mi cantidad vieja es: ", oldCant);
       const newCant = oldCant + item.cantidad;
-      console.log("mi cantidad nueva es: ", newCant);
       cartList[index].cantidad = newCant;
       const newCartList = [...cartList];
       setCartList(newCartList);
@@ -23,18 +21,14 @@ function CartContexProvider({ children }) {
 
   const removeElementCartId = (idParamer) => {
     if (isInCart(idParamer)) {
-      console.log("entre aca");
       const newCartList = cartList.filter(
         (element) => element.id !== idParamer
       );
       setCartList(newCartList);
-    } else {
-      console.log("no encontre elemento");
     }
   };
 
   const clearCartList = () => {
-    console.log("entre a este metodo");
     setCartList([]);
   };
 

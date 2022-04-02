@@ -54,6 +54,7 @@ function Nabvar() {
               </Link>
             </li>
           </ul>
+
           <Link className="nav-link text-light" to="Cart">
             <CardWidget />
           </Link>

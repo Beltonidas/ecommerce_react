@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import CardWidget from "../CardWidget";
+import ShoppingCartIcon from "../../resources/icons/ShoppingCartIcon";
 
 const InputCount = () => {
   return (
@@ -9,7 +9,7 @@ const InputCount = () => {
       <div class="col">
         <Link to="/Cart">
           <button className="btn btn-success p-2 m-2">
-            Ir al Carrito <CardWidget />
+            Ir al Carrito <ShoppingCartIcon />
           </button>
         </Link>
       </div>

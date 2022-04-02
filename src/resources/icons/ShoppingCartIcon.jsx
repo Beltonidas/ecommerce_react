@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 const ShoppingCartIcon = (props) => (
   <svg
@@ -20,6 +20,6 @@ const ShoppingCartIcon = (props) => (
     <path d="M17 17H6V3H4" />
     <path d="m6 5 14 1-1 7H6" />
   </svg>
-)
+);
 
-export default ShoppingCartIcon
+export default ShoppingCartIcon;

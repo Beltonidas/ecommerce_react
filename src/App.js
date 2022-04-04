@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import * as bootstrap from "bootstrap";
@@ -18,36 +19,36 @@ import Erorr404 from "./Helpers/Erorr404";
 import CartContexProvider from "./Components/CarritoCompra/CartContex";
 
 function App() {
-    return (   
-        <div className="App">
-        <Router>
-          <CartContexProvider>
-            <header>
-              <Nabvar />
-            </header>
-            <Routes>
-              <Route path="/home" exact element={<Home />} />{" "}
-              <Route
-                path="/Category/:id"
-                exact
-                element={<ItemsLIstContainer filtro="" />}
-              />{" "}
-              <Route path="/Contact" element={<Contact />} />{" "}
-              <Route path="/AboutUs" element={<AboutUs />} />{" "}
-              <Route path="/Experience" element={<Experience />} />{" "}
-              <Route path="/OurFlowers" element={<OurFlowers />} />{" "}
-              <Route path="/Blog" element={<Blog />} />{" "}
-              <Route path="/Cart" element={<Cart />} />{" "}
-              <Route
-                path="/Detalle/:detalleId"
-                element={<ItemDetailContainer />}
-              />{" "}
-            </Routes>{" "}
-            <Footer />
-          </CartContexProvider>
-        </Router>{" "}
-      </div>
-    );
+  return (
+    <div className="App">
+      <Router>
+        <CartContexProvider>
+          <header>
+            <Nabvar />
+          </header>
+          <Routes>
+            <Route path="/home" exact element={<Home />} />{" "}
+            <Route
+              path="/Category/:id"
+              exact
+              element={<ItemsLIstContainer filtro="" />}
+            />{" "}
+            <Route path="/Contact" element={<Contact />} />{" "}
+            <Route path="/AboutUs" element={<AboutUs />} />{" "}
+            <Route path="/Experience" element={<Experience />} />{" "}
+            <Route path="/OurFlowers" element={<OurFlowers />} />{" "}
+            <Route path="/Blog" element={<Blog />} />{" "}
+            <Route path="/Cart" element={<Cart />} />{" "}
+            <Route
+              path="/Detalle/:detalleId"
+              element={<ItemDetailContainer />}
+            />{" "}
+          </Routes>{" "}
+          <Footer />
+        </CartContexProvider>
+      </Router>{" "}
+    </div>
+  );
 }
 
 export default App;

@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getFetch, getDatos } from "../../DataBase/DatosProductos";
@@ -28,7 +29,7 @@ function ItemsLIstContainer({ filtro }) {
   }, [filtro]);
 
   let Arreglo = [];
-  prods.map(function (index) {
+  prods.map(function(index) {
     Arreglo.push(index);
   });
 

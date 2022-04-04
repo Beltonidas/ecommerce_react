@@ -71,7 +71,7 @@ function ItemsLIstContainer({ filtro }) {
     const queryCollection = collection(db, "items");
     const queryFilter = query(
       queryCollection,
-      where("categoria", "==", "Flor ")
+      where("categoria", "==", "Flor")
     );
     getDocs(queryFilter)
       .then((resp) =>
@@ -90,7 +90,7 @@ function ItemsLIstContainer({ filtro }) {
   });
   */
 
-  console.log("es producto qeu traje de fire base es: ", prods);
+  console.log("los productos que traje de fire base son:: ", prods);
 
   return (
     <div>

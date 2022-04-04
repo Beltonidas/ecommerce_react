@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ShoppingCartIcon from "../resources/icons/ShoppingCartIcon";
 import { useCartContex } from "../Components/CarritoCompra/CartContex";
 
 function CardWidget() {
   const { cartList } = useCartContex();
+  const [sumCartWidget, setSumCartWidget] = useState(0);
+
+  useEffect(() => {
+    let sumTotal = 0;
+    cartList.forEach((element) => {
+      sumTotal = sumTotal + element.cantidad;
+    });
+    setSumCartWidget(sumTotal);
+  }, [cartList]);
   const existItem = cartList.length > 0 ? true : false;
-  console.log("la cantidad de item en el car son: ", existItem);
   return (
     <>
       {existItem ? (
@@ -14,7 +22,7 @@ function CardWidget() {
             <ShoppingCartIcon />
           </div>
           <div class=" bd-highlight">
-            <h7> {cartList.length}</h7>
+            <h7> {sumCartWidget}</h7>
           </div>
         </div>
       ) : (

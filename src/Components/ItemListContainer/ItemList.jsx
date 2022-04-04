@@ -2,11 +2,6 @@ import React from "react";
 import Item from "./Item/Item";
 
 function ItemList({ productos }) {
-  /*const todoItems = productos.map((todo) =>
-  <li key={todo.id}>
-    {todo.categoria}
-  </li>  );
-*/
   return (
     <div className="container-sm">
       <div className="row">

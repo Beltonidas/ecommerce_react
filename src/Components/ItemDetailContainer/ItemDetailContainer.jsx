@@ -1,25 +1,50 @@
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import GetItem from "../../Helpers/GetIten";
 import Loading from "../../Helpers/Loading";
 import ItemDetail from "./ItemDetail/ItemDetail";
 
 function ItemDetailContainer() {
-  const [element, setElement] = useState(1);
+  const [element, setElement] = useState({});
   const { detalleId } = useParams();
   const [boolean, setBoolean] = useState(false);
 
   let paramDinamic = Number(detalleId);
-  console.log("mi parametro es" + paramDinamic);
+  console.log("mi parametro es: ", paramDinamic);
 
   useEffect(() => {
-    if (paramDinamic != null) {
-      GetItem(paramDinamic)
-        .then((elementSimple) => setElement(elementSimple))
-        .catch((reject) => console.log("Error de petición" + reject))
+    const db = getFirestore();
+    const queryCollection = collection(db, "items");
+    if (paramDinamic !== null) {
+      console.log("entre al if con mi parametro: ", paramDinamic);
+      const queryFilter = query(
+        queryCollection,
+        where("id", "==", paramDinamic)
+      );
+      getDocs(queryFilter)
+        .then((resp) => {
+          console.log(resp);
+          setElement(
+            resp.docs.map((producto) => ({
+              id: producto.id,
+              ...producto.data(),
+            }))
+          );
+        })
+        .catch((err) => console.log(err))
         .finally(() => setBoolean(true));
     }
   }, [paramDinamic]);
+
+  console.log("mi elemento es: ", element);
   return (
     <div>
       {!boolean ? (

@@ -55,6 +55,8 @@ function ItemsLIstContainer({ filtro }) {
   useEffect(() => {
     const db = getFirestore();
     const queryCollection = collection(db, "items");
+    if (filtro) {
+    }
     getDocs(queryCollection)
       .then((resp) =>
         setProds(

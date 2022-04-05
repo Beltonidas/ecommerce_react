@@ -12,7 +12,9 @@ function Item({ prod }) {
         />
         <div className="card-body">
           <h5 className="card-title">{prod.name}</h5>
-          <p className="card-text">Cantidades disponibles: {prod.cantidad}</p>
+          <p className="card-text">
+            Cantidades disponibles: {prod.stockDisponible}
+          </p>
         </div>
         <div className="cart-footer">
           <Link to={`/Detalle/${prod.id}`}>

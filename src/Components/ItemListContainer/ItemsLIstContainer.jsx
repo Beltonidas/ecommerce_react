@@ -51,29 +51,11 @@ function ItemsLIstContainer({ filtro }) {
    */
 
   //Para traer toda la coleccion de elementos
-  /*
-   useEffect(() => {
-     const db = getFirestore();
-     const queryCollection = collection(db, "items");
-     getDocs(queryCollection)
-       .then((resp) =>
-         setProds(
-           resp.docs.map((producto) => ({ id: producto.id, ...producto.data() }))
-         )
-       )
-       .catch((err) => console.log(err))
-       .finally(() => setBoolean(true));
-   }, [filtro]);
-   */
 
   useEffect(() => {
     const db = getFirestore();
     const queryCollection = collection(db, "items");
-    const queryFilter = query(
-      queryCollection,
-      where("categoria", "==", "Flor")
-    );
-    getDocs(queryFilter)
+    getDocs(queryCollection)
       .then((resp) =>
         setProds(
           resp.docs.map((producto) => ({ id: producto.id, ...producto.data() }))
@@ -82,6 +64,20 @@ function ItemsLIstContainer({ filtro }) {
       .catch((err) => console.log(err))
       .finally(() => setBoolean(true));
   }, [filtro]);
+
+  // useEffect(() => {
+  //   const db = getFirestore();
+  //   const queryCollection = collection(db, "items");
+  //   const queryFilter = query(queryCollection, where("categoria", "==", "Exp"));
+  //   getDocs(queryFilter)
+  //     .then((resp) =>
+  //       setProds(
+  //         resp.docs.map((producto) => ({ id: producto.id, ...producto.data() }))
+  //       )
+  //     )
+  //     .catch((err) => console.log(err))
+  //     .finally(() => setBoolean(true));
+  // }, [filtro]);
 
   //codigo anterior cuando teniamos la base de datos en un archivo
   /*let Arreglo = [];

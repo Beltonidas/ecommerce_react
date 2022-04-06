@@ -3,16 +3,24 @@ import { useCartContex } from "./CartContex";
 import CartEmpty from "./CartEmpty";
 
 function Cart() {
+  // Hooks State
   const [sumTotalCart, setSumTotalCart] = useState(0);
+  const [dataForm, setDataForm] = useState({ email: "", name: "", phone: "" });
+  const [id, setId] = useState(null);
+
+  // Destructuring de cartContext
   const { cartList, removeElementCartId, clearCartList } = useCartContex();
+
+  //Existencia de items
   const existItem = cartList.length > 0 ? true : false;
 
+  //Lista de items
   const listItemCartList = cartList.map((element) => (
     <li key={element.id}>
-      <span className="m-2">idProducto: {element.id}</span>
-      <span className="m-2">cantidad: {element.cantidad}</span>
-      <span className="m-2">precio: {element.precio}</span>
-      <span className="m-2">subTotal: {element.precio * element.cantidad}</span>
+      <span className="m-2">Nombre Producto: {element.name}</span>
+      <span className="m-2">Cantidad: {element.cantidad}</span>
+      <span className="m-2">Precio: {element.precio}</span>
+      <span className="m-2">SubTotal: {element.precio * element.cantidad}</span>
       <button
         type="button"
         className="btn btn-success m-2"
@@ -23,6 +31,7 @@ function Cart() {
     </li>
   ));
 
+  //Contexto de Carrito de compra, como varia en funcion de las acciones del ususario
   useEffect(() => {
     let sumaTotal = 0;
     cartList.forEach((element) => {
@@ -30,6 +39,14 @@ function Cart() {
     });
     setSumTotalCart(sumaTotal);
   }, [cartList]);
+
+  const generarOrden = async (e) => {
+    e.preventDefault();
+    let objOrden = {};
+    objOrden.buyer = dataForm;
+    objOrden.total = sumTotalCart;
+    console.log("orden generada?");
+  };
 
   return (
     <>
@@ -49,6 +66,13 @@ function Cart() {
             </div>
           </div>
           <h4>Total a pagar: {sumTotalCart}</h4>
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={generarOrden}
+          >
+            ¡Comprar ahora!
+          </button>
         </div>
       ) : (
         <>

@@ -1,7 +1,5 @@
 import {
   collection,
-  doc,
-  getDoc,
   getDocs,
   getFirestore,
   query,
@@ -16,7 +14,6 @@ import ItemList from "./ItemList";
 function ItemsLIstContainer({ filtro }) {
   //guardo mis productos en contexto una vez que llamo a la api
   const [prods, setProds] = useState([]);
-  const [prod, setProd] = useState({});
   const { id } = useParams();
   const [boolean, setBoolean] = useState(false);
 

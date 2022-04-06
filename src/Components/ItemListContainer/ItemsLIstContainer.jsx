@@ -41,14 +41,15 @@ function ItemsLIstContainer({ filtro }) {
         .finally(() => setBoolean(true));
     } else {
       getDocs(queryCollection)
-        .then((resp) =>
+        .then((resp) => {
+          console.log(resp);
           setProds(
             resp.docs.map((producto) => ({
               id: producto.id,
               ...producto.data(),
             }))
-          )
-        )
+          );
+        })
         .catch((err) => console.log(err))
         .finally(() => setBoolean(true));
     }

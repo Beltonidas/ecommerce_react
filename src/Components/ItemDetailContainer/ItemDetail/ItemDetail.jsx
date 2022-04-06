@@ -11,6 +11,7 @@ function ItemDetail({ item }) {
 
   console.log("mi cartList", cartList);
   console.log(item);
+  console.log("mi stockDisponible es: ", item.stockDisponible);
   return (
     <div className="container">
       <h2>{item.categoria}</h2>
@@ -25,10 +26,10 @@ function ItemDetail({ item }) {
           <p>Descripcion simple</p>
         </div>
         <div className="col-2">
-          <h6>Price: {item.price} USD</h6>
+          <h6>Price: {item.precio} USD</h6>
           <ItemContador
             stockInicial={1}
-            stockMaximo={item.cantidad}
+            stockMaximo={item.stockDisponible}
             addCart={addCart}
           />
         </div>

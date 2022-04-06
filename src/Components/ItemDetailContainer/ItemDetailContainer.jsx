@@ -15,7 +15,6 @@ function ItemDetailContainer() {
   useEffect(() => {
     const db = getFirestore();
     const queryDoc = doc(db, "items", paramDinamic);
-    console.log("mi query doc es: ", queryDoc);
     getDoc(queryDoc)
       .then((resp) => {
         console.log(resp);

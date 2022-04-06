@@ -11,8 +11,8 @@ function Cart() {
     <li key={element.id}>
       <span className="m-2">idProducto: {element.id}</span>
       <span className="m-2">cantidad: {element.cantidad}</span>
-      <span className="m-2">price: {element.price}</span>
-      <span className="m-2">subTotal: {element.price * element.cantidad}</span>
+      <span className="m-2">precio: {element.precio}</span>
+      <span className="m-2">subTotal: {element.precio * element.cantidad}</span>
       <button
         type="button"
         className="btn btn-success m-2"
@@ -26,7 +26,7 @@ function Cart() {
   useEffect(() => {
     let sumaTotal = 0;
     cartList.forEach((element) => {
-      sumaTotal = sumaTotal + element.price * element.cantidad;
+      sumaTotal = sumaTotal + element.precio * element.cantidad;
     });
     setSumTotalCart(sumaTotal);
   }, [cartList]);

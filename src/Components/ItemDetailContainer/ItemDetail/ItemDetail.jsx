@@ -9,9 +9,9 @@ function ItemDetail({ item }) {
     addToCart({ ...item, cantidad: cant });
   };
 
-  console.log("mi cartList", cartList);
-  console.log(item);
-  console.log("mi stockDisponible es: ", item.stockDisponible);
+  // console.log("mi cartList", cartList);
+  // console.log(item);
+  // console.log("mi stockDisponible es: ", item.stockDisponible);
   return (
     <div className="container">
       <h2>{item.categoria}</h2>

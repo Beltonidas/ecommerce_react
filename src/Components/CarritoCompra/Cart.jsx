@@ -68,7 +68,6 @@ function Cart() {
       .catch((err) => console.log(err))
       .finally(() => {
         clearCartList();
-        setCartCheckOut(true);
       });
   };
 
@@ -93,7 +92,7 @@ function Cart() {
   };
 
   const laPrueba = () => {
-    console.log("hola");
+    setCartCheckOut(true);
   };
 
   return (
@@ -114,76 +113,63 @@ function Cart() {
             </div>
           </div>
           <h4>Total a pagar: {sumTotalCart}</h4>
-          <button
-            type="button"
-            className="btn btn-success"
-            onClick={generarOrden}
-          >
-            ¡Comprar ahora!
+          <button type="button" className="btn btn-success" onClick={laPrueba}>
+            Terminar Compra
           </button>
+          <div>
+            {cartCheckOut ? (
+              <div>
+                <h4>
+                  Por favor ingrese sus datos para poder finalizar tu compra
+                </h4>
+                <form className="mt-5">
+                  <input
+                    className="m-2"
+                    type="text"
+                    name="name"
+                    placeholder="Tu nombre"
+                    value={dataForm.name}
+                    onChange={handleChange}
+                  />
+                  <br />
+                  <input
+                    className="m-2"
+                    type="text"
+                    name="phone"
+                    placeholder="Tu telefono"
+                    value={dataForm.phone}
+                    onChange={handleChange}
+                  />
+                  <br />
+                  <input
+                    className="m-2"
+                    type="email"
+                    name="email"
+                    placeholder="Tu e-mail"
+                    value={dataForm.email}
+                    onChange={handleChange}
+                  />
+                  <br />
+
+                  <button
+                    type="button"
+                    className="btn btn-success"
+                    onClick={generarOrden}
+                  >
+                    ¡Comprar Ahora!
+                  </button>
+                </form>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       ) : (
         <>
           <CartEmpty />
-          <button
-            type="button"
-            className="btn btn-success"
-            onClick={updateStock}
-          >
-            Probar Stock
-          </button>
         </>
       )}
-
-      <div>
-        {cartCheckOut ? (
-          <div>
-            <form className="mt-5" onSubmit={laPrueba()}>
-              <input
-                type="text"
-                name="name"
-                placeholder="name"
-                value={dataForm.name}
-                onChange={handleChange}
-              />
-              <br />
-              <input
-                type="text"
-                name="phone"
-                placeholder="tel"
-                value={dataForm.phone}
-                onChange={handleChange}
-              />
-              <br />
-              <input
-                type="email"
-                name="email"
-                placeholder="email"
-                value={dataForm.email}
-                onChange={handleChange}
-              />
-              <br />
-              <input
-                type="email"
-                name="email1"
-                placeholder="repita email"
-                value={dataForm.email}
-                onChange={handleChange}
-              />
-              <br />
-
-              <button
-                className="btn btn-outline-primary"
-                onClick={generarOrden}
-              >
-                Terminar Compra
-              </button>
-            </form>
-          </div>
-        ) : (
-          <div> No estoy aca, pero tengo que estar</div>
-        )}
-      </div>
     </>
   );
 }

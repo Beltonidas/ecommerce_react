@@ -10,21 +10,20 @@ function ItemDetailContainer() {
   const [boolean, setBoolean] = useState(false);
 
   let paramDinamic = detalleId;
-  console.log("mi parametro es: ", paramDinamic);
+  //console.log("mi parametro es: ", paramDinamic);
 
   useEffect(() => {
     const db = getFirestore();
     const queryDoc = doc(db, "items", paramDinamic);
     getDoc(queryDoc)
       .then((resp) => {
-        console.log(resp);
+        //console.log(resp);
         setElement({ id: resp.id, ...resp.data() });
       })
       .catch((err) => console.log(err))
       .finally(() => setBoolean(true));
   }, [paramDinamic]);
 
-  console.log("mi elemento es: ", element);
   return (
     <div>
       {!boolean ? (

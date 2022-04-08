@@ -29,7 +29,7 @@ function ItemsLIstContainer({ filtro }) {
       );
       getDocs(queryFilter)
         .then((resp) => {
-          console.log(resp);
+          // console.log(resp);
           setProds(
             resp.docs.map((producto) => ({
               id: producto.id,
@@ -42,7 +42,7 @@ function ItemsLIstContainer({ filtro }) {
     } else {
       getDocs(queryCollection)
         .then((resp) => {
-          console.log(resp);
+          // console.log(resp);
           setProds(
             resp.docs.map((producto) => ({
               id: producto.id,
@@ -55,8 +55,8 @@ function ItemsLIstContainer({ filtro }) {
     }
   }, [filtro]);
 
-  console.log(prods);
-  console.log("los productos que traje de fire base son:: ", prods);
+  //console.log(prods);
+  //console.log("los productos que traje de fire base son:: ", prods);
 
   return (
     <div>

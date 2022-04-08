@@ -70,6 +70,12 @@ function Cart() {
         clearCartList();
       });
   };
+  const handleChange = (e) => {
+    setDataForm({
+      ...dataForm,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   // Queda implementar actualizar el stock
   const updateStock = () => {
@@ -84,14 +90,7 @@ function Cart() {
       .catch((err) => console.log(err));
   };
 
-  const handleChange = (e) => {
-    setDataForm({
-      ...dataForm,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const laPrueba = () => {
+  const setCartOut = () => {
     setCartCheckOut(true);
   };
 
@@ -113,7 +112,11 @@ function Cart() {
             </div>
           </div>
           <h4>Total a pagar: {sumTotalCart}</h4>
-          <button type="button" className="btn btn-success" onClick={laPrueba}>
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={setCartOut}
+          >
             Terminar Compra
           </button>
           <div>

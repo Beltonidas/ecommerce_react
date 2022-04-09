@@ -76,6 +76,9 @@ function Cart() {
       [e.target.name]: e.target.value,
     });
   };
+  const setCartOut = () => {
+    setCartCheckOut(true);
+  };
 
   // Queda implementar actualizar el stock
   const updateStock = () => {
@@ -88,10 +91,6 @@ function Cart() {
         console.log(resp.data().items);
       })
       .catch((err) => console.log(err));
-  };
-
-  const setCartOut = () => {
-    setCartCheckOut(true);
   };
 
   return (
@@ -111,10 +110,10 @@ function Cart() {
               </button>
             </div>
           </div>
-          <h4>Total a pagar: {sumTotalCart}</h4>
+          <h4 className="mt-5">Total a pagar: {sumTotalCart}</h4>
           <button
             type="button"
-            className="btn btn-success"
+            className="btn btn-success mt-5"
             onClick={setCartOut}
           >
             Terminar Compra

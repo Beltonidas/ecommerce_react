@@ -20,7 +20,6 @@ function ItemContador({ stockInicial, stockMaximo, addCart }) {
     if (count > stockInicial) setCount(count - 1);
     else alert("¿Quiere poner un Stock negativo?");
   };
-  //Logica para agregar items al carrito
   return (
     <div>
       <div className="d-flex flex-column bd-highlight mb-3">

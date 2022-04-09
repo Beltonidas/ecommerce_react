@@ -28,7 +28,6 @@ function ItemsLIstContainer({ filtro }) {
 
     getDocs(queryCollectionFinally)
       .then((resp) => {
-        // console.log(resp);
         setProds(
           resp.docs.map((producto) => ({
             id: producto.id,
@@ -39,9 +38,6 @@ function ItemsLIstContainer({ filtro }) {
       .catch((err) => console.log(err))
       .finally(() => setBoolean(true));
   }, [filtro]);
-
-  //console.log(prods);
-  //console.log("los productos que traje de fire base son:: ", prods);
 
   return (
     <div>
@@ -56,80 +52,3 @@ function ItemsLIstContainer({ filtro }) {
 }
 
 export default ItemsLIstContainer;
-
-// Ejecuta solo una vez despues de renderizar los componenetes
-/*
-  useEffect(() => {
-     if (filtro) {
-       getFetch // simulacion a un llamado a una api
-         .then((resp) =>
-           setProds(resp.filter((prod) => prod.categoria === filtro))
-         )
-         .catch((err) => console.log(err))
-         .finally(() => setBoolean(true));
-     } else {
-       getFetch // simulacion a un llamado a una api
-         .then((resp) => setProds(resp))
-         .catch((err) => console.log(err))
-         .finally(() => setBoolean(true));
-     }
-   }, [filtro]);
-  */
-
-//Para traer de a aun elemento
-/*
-   useEffect(() => {
-     const db = getFirestore();
-     const queryDoc = doc(db, "items", "0wlXd6wQ8gLppCCteVbo");
-     getDoc(queryDoc).then((resp) => setProd({ id: resp.id, ...resp.data() }));
-   }, [filtro]);
-   
-   */
-
-// useEffect(() => {
-//   const db = getFirestore();
-//   const queryCollection = collection(db, "items");
-//   const queryFilter = query(queryCollection, where("categoria", "==", "Exp"));
-//   getDocs(queryFilter)
-//     .then((resp) =>
-//       setProds(
-//         resp.docs.map((producto) => ({ id: producto.id, ...producto.data() }))
-//       )
-//     )
-//     .catch((err) => console.log(err))
-//     .finally(() => setBoolean(true));
-// }, [filtro]);
-
-//     const db = getFirestore();
-// const queryCollection = collection(db, "items");
-// if (filtro !== "") {
-//   const queryFilter = query(
-//     queryCollection,
-//     where("categoria", "==", filtro)
-//   );
-//   getDocs(queryFilter)
-//     .then((resp) => {
-//       // console.log(resp);
-//       setProds(
-//         resp.docs.map((producto) => ({
-//           id: producto.id,
-//           ...producto.data(),
-//         }))
-//       );
-//     })
-//     .catch((err) => console.log(err))
-//     .finally(() => setBoolean(true));
-// } else {
-//   getDocs(queryCollection)
-//     .then((resp) => {
-//       // console.log(resp);
-//       setProds(
-//         resp.docs.map((producto) => ({
-//           id: producto.id,
-//           ...producto.data(),
-//         }))
-//       );
-//     })
-//     .catch((err) => console.log(err))
-//     .finally(() => setBoolean(true));
-// }

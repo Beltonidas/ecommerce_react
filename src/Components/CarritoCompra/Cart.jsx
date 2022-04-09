@@ -16,6 +16,7 @@ function Cart() {
   const [dataForm, setDataForm] = useState({ email: "", name: "", phone: "" });
   const [id, setId] = useState();
   const [cartCheckOut, setCartCheckOut] = useState(false);
+  const [idProducts, setIdProducts] = useState([]);
 
   // Destructuring de cartContext
   const { cartList, removeElementCartId, clearCartList } = useCartContex();
@@ -57,9 +58,10 @@ function Cart() {
     objOrden.items = cartList.map((cartItem) => {
       const id = cartItem.id;
       const nombre = cartItem.name;
+      const cantidad = cartItem.cantidad;
       const precio = cartItem.precio * cartItem.cantidad;
 
-      return { id, nombre, precio };
+      return { id, nombre, cantidad, precio };
     });
     const db = getFirestore();
     const queryCollectionItems = collection(db, "orders");
@@ -80,15 +82,23 @@ function Cart() {
     setCartCheckOut(true);
   };
 
+  //console.log("mi id a operar es: ", id);
+
   // Queda implementar actualizar el stock
   const updateStock = () => {
     const db = getFirestore();
     const queryDoc = doc(db, "orders", id);
+    console.log(queryDoc);
     getDoc(queryDoc)
       .then((resp) => {
-        console.log(resp.id);
-        console.log(resp.data());
-        console.log(resp.data().items);
+        let idProduct = [{ id_producto: "", cantidad: 0 }];
+        let it = 0;
+        resp.data().items.forEach((element) => {
+          console.log(element.id);
+          console.log(element.cantidad);
+          it = it + 1;
+        });
+        console.log(idProduct);
       })
       .catch((err) => console.log(err));
   };
@@ -106,24 +116,25 @@ function Cart() {
                 className="btn btn-success"
                 onClick={clearCartList}
               >
-                Delete All Cart
+                Eliminar el Carrito
               </button>
             </div>
           </div>
           <h4 className="mt-5">Total a pagar: {sumTotalCart}</h4>
-          <button
-            type="button"
-            className="btn btn-success mt-5"
-            onClick={setCartOut}
-          >
-            Terminar Compra
-          </button>
           <div>
-            {cartCheckOut ? (
-              <div>
-                <h4>
-                  Por favor ingrese sus datos para poder finalizar tu compra
-                </h4>
+            {!cartCheckOut ? (
+              <div className="container">
+                <button
+                  type="button"
+                  className="btn btn-success mt-5"
+                  onClick={setCartOut}
+                >
+                  Terminar la compra
+                </button>
+              </div>
+            ) : (
+              <div className="container">
+                <h5>Ingrese sus datos para poder finalizar la compra</h5>
                 <form className="mt-5">
                   <input
                     className="m-2"
@@ -162,14 +173,21 @@ function Cart() {
                   </button>
                 </form>
               </div>
-            ) : (
-              <></>
             )}
           </div>
         </div>
       ) : (
         <>
           <CartEmpty />
+          {/*
+            <div>
+              <h3>Probar el carrito</h3>
+              <button type="button" className="btn btn-success mt-5">
+                simular control de stock
+              </button>
+            </div>
+            
+            */}
         </>
       )}
     </>

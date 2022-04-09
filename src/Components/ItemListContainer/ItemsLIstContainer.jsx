@@ -21,38 +21,23 @@ function ItemsLIstContainer({ filtro }) {
 
   useEffect(() => {
     const db = getFirestore();
-    const queryCollection = collection(db, "items");
-    if (filtro !== "") {
-      const queryFilter = query(
-        queryCollection,
-        where("categoria", "==", filtro)
-      );
-      getDocs(queryFilter)
-        .then((resp) => {
-          // console.log(resp);
-          setProds(
-            resp.docs.map((producto) => ({
-              id: producto.id,
-              ...producto.data(),
-            }))
-          );
-        })
-        .catch((err) => console.log(err))
-        .finally(() => setBoolean(true));
-    } else {
-      getDocs(queryCollection)
-        .then((resp) => {
-          // console.log(resp);
-          setProds(
-            resp.docs.map((producto) => ({
-              id: producto.id,
-              ...producto.data(),
-            }))
-          );
-        })
-        .catch((err) => console.log(err))
-        .finally(() => setBoolean(true));
-    }
+    const queryCollectionFinally =
+      filtro == ""
+        ? collection(db, "items")
+        : query(collection(db, "items"), where("categoria", "==", filtro));
+
+    getDocs(queryCollectionFinally)
+      .then((resp) => {
+        // console.log(resp);
+        setProds(
+          resp.docs.map((producto) => ({
+            id: producto.id,
+            ...producto.data(),
+          }))
+        );
+      })
+      .catch((err) => console.log(err))
+      .finally(() => setBoolean(true));
   }, [filtro]);
 
   //console.log(prods);
@@ -114,3 +99,37 @@ export default ItemsLIstContainer;
 //     .catch((err) => console.log(err))
 //     .finally(() => setBoolean(true));
 // }, [filtro]);
+
+//     const db = getFirestore();
+// const queryCollection = collection(db, "items");
+// if (filtro !== "") {
+//   const queryFilter = query(
+//     queryCollection,
+//     where("categoria", "==", filtro)
+//   );
+//   getDocs(queryFilter)
+//     .then((resp) => {
+//       // console.log(resp);
+//       setProds(
+//         resp.docs.map((producto) => ({
+//           id: producto.id,
+//           ...producto.data(),
+//         }))
+//       );
+//     })
+//     .catch((err) => console.log(err))
+//     .finally(() => setBoolean(true));
+// } else {
+//   getDocs(queryCollection)
+//     .then((resp) => {
+//       // console.log(resp);
+//       setProds(
+//         resp.docs.map((producto) => ({
+//           id: producto.id,
+//           ...producto.data(),
+//         }))
+//       );
+//     })
+//     .catch((err) => console.log(err))
+//     .finally(() => setBoolean(true));
+// }

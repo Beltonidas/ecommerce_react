@@ -10,7 +10,6 @@ function ItemDetailContainer() {
   const [boolean, setBoolean] = useState(false);
 
   let paramDinamic = detalleId;
-  //console.log("mi parametro es: ", paramDinamic);
 
   useEffect(() => {
     const db = getFirestore();
@@ -36,25 +35,3 @@ function ItemDetailContainer() {
 }
 
 export default ItemDetailContainer;
-
-//const db = getFirestore();
-// const queryCollection = collection(db, "items");
-// if (paramDinamic !== null) {
-//   console.log("entre al if con mi parametro: ", paramDinamic);
-//   const queryFilter = query(
-//     queryCollection,
-//     where("id", "==", paramDinamic)
-//   );
-//   getDocs(queryFilter)
-//     .then((resp) => {
-//       console.log(resp);
-//       setElement(
-//         resp.docs.map((producto) => ({
-//           id: producto.id,
-//           ...producto.data(),
-//         }))
-//       );
-//     })
-//     .catch((err) => console.log(err))
-//     .finally(() => setBoolean(true));
-// }

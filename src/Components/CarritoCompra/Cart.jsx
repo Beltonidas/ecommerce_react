@@ -7,6 +7,7 @@ import {
   getFirestore,
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import CartCheckOut from "./CartCheckOut";
 import { useCartContex } from "./CartContex";
 import CartEmpty from "./CartEmpty";
 
@@ -17,6 +18,10 @@ function Cart() {
   const [id, setId] = useState();
   const [cartCheckOut, setCartCheckOut] = useState(false);
   const [idProducts, setIdProducts] = useState([]);
+  const [validateEmail, setValidateEmail] = useState({
+    campo: "",
+    valido: null,
+  });
 
   // Destructuring de cartContext
   const { cartList, removeElementCartId, clearCartList } = useCartContex();
@@ -71,12 +76,6 @@ function Cart() {
       .finally(() => {
         clearCartList();
       });
-  };
-  const handleChange = (e) => {
-    setDataForm({
-      ...dataForm,
-      [e.target.name]: e.target.value,
-    });
   };
   const setCartOut = () => {
     setCartCheckOut(true);
@@ -135,43 +134,15 @@ function Cart() {
             ) : (
               <div className="container">
                 <h5>Ingrese sus datos para poder finalizar la compra</h5>
-                <form className="mt-5">
-                  <input
-                    className="m-2"
-                    type="text"
-                    name="name"
-                    placeholder="Tu nombre"
-                    value={dataForm.name}
-                    onChange={handleChange}
+                {
+                  <CartCheckOut
+                    dataForm={dataForm}
+                    setDataForm={setDataForm}
+                    validateEmail={validateEmail}
+                    setValidateEmail={setValidateEmail}
+                    generarOrden={generarOrden}
                   />
-                  <br />
-                  <input
-                    className="m-2"
-                    type="text"
-                    name="phone"
-                    placeholder="Tu telefono"
-                    value={dataForm.phone}
-                    onChange={handleChange}
-                  />
-                  <br />
-                  <input
-                    className="m-2"
-                    type="email"
-                    name="email"
-                    placeholder="Tu e-mail"
-                    value={dataForm.email}
-                    onChange={handleChange}
-                  />
-                  <br />
-
-                  <button
-                    type="button"
-                    className="btn btn-success"
-                    onClick={generarOrden}
-                  >
-                    ¡Comprar Ahora!
-                  </button>
-                </form>
+                }
               </div>
             )}
           </div>

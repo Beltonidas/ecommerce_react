@@ -22,7 +22,7 @@ function CardWidget() {
             <ShoppingCartIcon />
           </div>
           <div class=" bd-highlight">
-            <h7> {sumCartWidget}</h7>
+            <p> {sumCartWidget}</p>
           </div>
         </div>
       ) : (

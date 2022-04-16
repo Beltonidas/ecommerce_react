@@ -22,7 +22,7 @@ function ItemsLIstContainer({ filtro }) {
   useEffect(() => {
     const db = getFirestore();
     const queryCollectionFinally =
-      filtro == ""
+      filtro === ""
         ? collection(db, "items")
         : query(collection(db, "items"), where("categoria", "==", filtro));
 
@@ -43,7 +43,7 @@ function ItemsLIstContainer({ filtro }) {
     <div>
       <p>{id}</p>
       {!boolean ? (
-        <Loading texto={"Cargando Elementos.."} />
+        <Loading texto={"Cargando Elementos..."} />
       ) : (
         <ItemList productos={prods} />
       )}

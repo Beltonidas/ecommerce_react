@@ -1,11 +1,4 @@
-import {
-  addDoc,
-  collection,
-  doc,
-  Firestore,
-  getDoc,
-  getFirestore,
-} from "firebase/firestore";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import CartCheckOut from "./CartCheckOut";
 import { useCartContex } from "./CartContex";
@@ -84,23 +77,23 @@ function Cart() {
   //console.log("mi id a operar es: ", id);
 
   // Queda implementar actualizar el stock
-  const updateStock = () => {
-    const db = getFirestore();
-    const queryDoc = doc(db, "orders", id);
-    console.log(queryDoc);
-    getDoc(queryDoc)
-      .then((resp) => {
-        let idProduct = [{ id_producto: "", cantidad: 0 }];
-        let it = 0;
-        resp.data().items.forEach((element) => {
-          console.log(element.id);
-          console.log(element.cantidad);
-          it = it + 1;
-        });
-        console.log(idProduct);
-      })
-      .catch((err) => console.log(err));
-  };
+  // const updateStock = () => {
+  //   const db = getFirestore();
+  //   const queryDoc = doc(db, "orders", id);
+  //   console.log(queryDoc);
+  //   getDoc(queryDoc)
+  //     .then((resp) => {
+  //       let idProduct = [{ id_producto: "", cantidad: 0 }];
+  //       let it = 0;
+  //       resp.data().items.forEach((element) => {
+  //         console.log(element.id);
+  //         console.log(element.cantidad);
+  //         it = it + 1;
+  //       });
+  //       console.log(idProduct);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import DownArrow from "../../resources/icons/DownArrow";
 import UpArrow from "../../resources/icons/UpArrow";
 import DinamicButton from "../Botones/DinamicButton";
-import { useCartContex } from "../CarritoCompra/CartContex";
 
 function ItemContador({ stockInicial, stockMaximo, addCart }) {
   //Logica para controlar el stock

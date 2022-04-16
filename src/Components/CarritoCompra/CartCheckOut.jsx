@@ -35,10 +35,8 @@ function CartCheckOut({
       dataForm.email === validateEmail.campo
     ) {
       setValidateEmail({ ...validateEmail, valido: true });
-      console.log("esta valido el e-mail");
     } else {
       setValidateEmail({ ...validateEmail, valido: false });
-      console.log("No es valido el e-mail");
     }
   };
 

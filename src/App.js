@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import * as bootstrap from "bootstrap";
-import Nabvar from "./Components/NabVar/Nabvar";
+import Nabvar from "./Components/NavBar/Nabvar";
 import ItemsLIstContainer from "./Components/ItemListContainer/ItemsLIstContainer";
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";

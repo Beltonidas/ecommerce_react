@@ -1,6 +1,5 @@
 import React from "react";
 import CardWidget from "../CardWidget";
-//import ShoppingCartIcon from '../resources/icons/ShoppingCartIcon';
 import { NavLink, Link } from "react-router-dom";
 
 function Nabvar() {

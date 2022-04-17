@@ -25,8 +25,8 @@ function Cart() {
 
   //Lista de items
   const listItemCartList = cartList.map((element) => (
-    <li className="list-group-item" key={element.id}>
-      <span className="m-2">Nombre Producto: {element.name}</span>
+    <li className="list-group-item list-group-item-success" key={element.id}>
+      <span className="m-2 ">Nombre Producto: {element.name}</span>
       <span className="m-2">Cantidad: {element.cantidad}</span>
       <span className="m-2">Precio: {element.precio}</span>
       <span className="m-2">SubTotal: {element.precio * element.cantidad}</span>
@@ -102,7 +102,7 @@ function Cart() {
     <>
       {existItem ? (
         <div className="container">
-          <h1>Cart Store</h1>
+          <h2>Cart Store</h2>
           <ol className="list-group list-group-numbered">{listItemCartList}</ol>
           <div class="d-flex flex-column bd-highlight">
             <div class="p-2 bd-highlight">

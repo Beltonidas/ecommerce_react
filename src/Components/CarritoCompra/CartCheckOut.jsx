@@ -52,6 +52,19 @@ function CartCheckOut({
           onChange={handleChange}
         />
         <br />
+
+        {
+          //Queda definir el campo del apellido
+          // <input
+          //   className="m-2"
+          //   type="text"
+          //   name="apellido"
+          //   placeholder=" Tu apellido"
+          //   value={dataForm.apellido}
+          //   onChange={handleChange}
+          // />
+          // <br />
+        }
         <input
           className="m-2"
           type="text"

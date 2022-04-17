@@ -8,6 +8,7 @@ function Cart() {
   // Hooks State
   const [sumTotalCart, setSumTotalCart] = useState(0);
   const [dataForm, setDataForm] = useState({ email: "", name: "", phone: "" });
+  //const [dataForm, setDataForm] = useState({ email: "", name: "", lastname: "",  phone: "" });
   const [id, setId] = useState();
   const [cartCheckOut, setCartCheckOut] = useState(false);
   const [idProducts, setIdProducts] = useState([]);
@@ -24,7 +25,7 @@ function Cart() {
 
   //Lista de items
   const listItemCartList = cartList.map((element) => (
-    <li key={element.id}>
+    <li className="list-group-item" key={element.id}>
       <span className="m-2">Nombre Producto: {element.name}</span>
       <span className="m-2">Cantidad: {element.cantidad}</span>
       <span className="m-2">Precio: {element.precio}</span>
@@ -56,10 +57,12 @@ function Cart() {
     objOrden.items = cartList.map((cartItem) => {
       const id = cartItem.id;
       const nombre = cartItem.name;
+      //const apellido = cartItem.lastname;
       const cantidad = cartItem.cantidad;
       const precio = cartItem.precio * cartItem.cantidad;
 
       return { id, nombre, cantidad, precio };
+      //return { id, nombre, apellido, cantidad, precio };
     });
     const db = getFirestore();
     const queryCollectionItems = collection(db, "orders");
@@ -100,7 +103,7 @@ function Cart() {
       {existItem ? (
         <div className="container">
           <h1>Cart Store</h1>
-          <ul>{listItemCartList}</ul>
+          <ol className="list-group list-group-numbered">{listItemCartList}</ol>
           <div class="d-flex flex-column bd-highlight">
             <div class="p-2 bd-highlight">
               <button

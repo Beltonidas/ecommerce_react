@@ -8,10 +8,10 @@ function Cart() {
   // Hooks State
   const [sumTotalCart, setSumTotalCart] = useState(0);
   const [dataForm, setDataForm] = useState({ email: "", name: "", phone: "" });
-  //const [dataForm, setDataForm] = useState({ email: "", name: "", lastname: "",  phone: "" });
-  const [id, setId] = useState();
+  const [idOrder, setId] = useState();
   const [cartCheckOut, setCartCheckOut] = useState(false);
-  const [idProducts, setIdProducts] = useState([]);
+  //const [idProducts, setIdProducts] = useState([]);
+  const [alertStore, setAlertStore] = useState(false);
   const [validateEmail, setValidateEmail] = useState({
     campo: "",
     valido: null,
@@ -57,12 +57,10 @@ function Cart() {
     objOrden.items = cartList.map((cartItem) => {
       const id = cartItem.id;
       const nombre = cartItem.name;
-      //const apellido = cartItem.lastname;
       const cantidad = cartItem.cantidad;
       const precio = cartItem.precio * cartItem.cantidad;
 
       return { id, nombre, cantidad, precio };
-      //return { id, nombre, apellido, cantidad, precio };
     });
     const db = getFirestore();
     const queryCollectionItems = collection(db, "orders");
@@ -71,13 +69,18 @@ function Cart() {
       .catch((err) => console.log(err))
       .finally(() => {
         clearCartList();
+        alertOrder();
       });
   };
   const setCartOut = () => {
     setCartCheckOut(true);
   };
 
-  //console.log("mi id a operar es: ", id);
+  const alertOrder = () => {
+    setAlertStore(true);
+  };
+
+  //console.log("mi id a operar es: ", idOrder);
 
   // Queda implementar actualizar el stock
   // const updateStock = () => {
@@ -146,6 +149,15 @@ function Cart() {
       ) : (
         <>
           <CartEmpty />
+          {alertOrder ? (
+            <div className="alert alert-success" role="alert">
+              <h3> Felicitaciones por su compra!</h3>
+              <br />
+              <span>id de la compra, {idOrder}</span>
+            </div>
+          ) : (
+            <></>
+          )}
           {/*
             <div>
               <h3>Probar el carrito</h3>

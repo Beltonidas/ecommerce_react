@@ -41,58 +41,58 @@ function CartCheckOut({
   };
 
   return (
-    <>
+    <div className="container">
       <form className="mt-5">
-        <input
-          className="m-2"
-          type="text"
-          name="name"
-          placeholder="Tu nombre"
-          value={dataForm.name}
-          onChange={handleChange}
-        />
+        <div className="d-inline-flex flex-column bd-highlight mb-3">
+          <label htmlFor="name">Full name</label>
+          <input
+            className=" "
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={dataForm.name}
+            onChange={handleChange}
+          />
+        </div>
+        <br />
+        <div className="d-inline-flex flex-column bd-highlight mb-3">
+          <label htmlFor="phone"> Your phone</label>
+          <input
+            className=""
+            type="text"
+            name="phone"
+            placeholder="Phone"
+            value={dataForm.phone}
+            onChange={handleChange}
+          />
+        </div>
         <br />
 
-        {
-          //Queda definir el campo del apellido
-          // <input
-          //   className="m-2"
-          //   type="text"
-          //   name="apellido"
-          //   placeholder=" Tu apellido"
-          //   value={dataForm.apellido}
-          //   onChange={handleChange}
-          // />
-          // <br />
-        }
-        <input
-          className="m-2"
-          type="text"
-          name="phone"
-          placeholder="Tu telefono"
-          value={dataForm.phone}
-          onChange={handleChange}
-        />
+        <div className="d-inline-flex flex-column bd-highlight mb-3">
+          <label htmlFor="email"> Your E-mail</label>
+          <input
+            className=""
+            type="email"
+            name="email"
+            placeholder="Tu e-mail"
+            value={dataForm.email}
+            onChange={handleChange}
+          />
+        </div>
         <br />
-        <input
-          className="m-2"
-          type="email"
-          name="email"
-          placeholder="Tu e-mail"
-          value={dataForm.email}
-          onChange={handleChange}
-        />
-        <br />
-        <input
-          className="m-2"
-          type="email"
-          name="campo"
-          placeholder="Repetir E-Mail"
-          value={validateEmail.campo}
-          onChange={setEmail}
-          onKeyUp={validateInput}
-          onBlur={validateInput}
-        />
+        <div className="d-inline-flex flex-column bd-highlight mb-3">
+          <label htmlFor="campo"> Repeat E-mail</label>
+          <input
+            className=""
+            type="email"
+            name="campo"
+            placeholder="Repetir E-Mail"
+            value={validateEmail.campo}
+            onChange={setEmail}
+            onKeyUp={validateInput}
+            onBlur={validateInput}
+          />
+        </div>
         {!validateEmail.valido ? (
           <p className="text-danger">El mail no es valido o no coicide</p>
         ) : (
@@ -108,7 +108,7 @@ function CartCheckOut({
           ¡Comprar Ahora!
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

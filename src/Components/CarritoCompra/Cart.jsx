@@ -150,7 +150,7 @@ function Cart() {
         <>
           <CartEmpty />
           {alertOrder ? (
-            <div className="alert alert-success" role="alert">
+            <div className="container alert alert-success" role="alert">
               <h3> Felicitaciones por su compra!</h3>
               <br />
               <span>id de la compra, {idOrder}</span>

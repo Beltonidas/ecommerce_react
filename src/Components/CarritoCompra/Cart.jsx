@@ -149,7 +149,7 @@ function Cart() {
       ) : (
         <>
           <CartEmpty />
-          {alertOrder ? (
+          {alertStore ? (
             <div className="container alert alert-success" role="alert">
               <h3> Felicitaciones por su compra!</h3>
               <br />

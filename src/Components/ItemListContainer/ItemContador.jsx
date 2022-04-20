@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import DownArrow from "../../resources/icons/DownArrow";
-import UpArrow from "../../resources/icons/UpArrow";
+//import DownArrow from "../../resources/icons/DownArrow";
+//import UpArrow from "../../resources/icons/UpArrow";
 import DinamicButton from "../Botones/DinamicButton";
 
 function ItemContador({ stockInicial, stockMaximo, addCart }) {
   //Logica para controlar el stock
   const [count, setCount] = useState(stockInicial);
   // función flecha que aumenta el valor de la función "setCount"
-  const aumenta = () => {
+  const sumItem = () => {
     if (count >= stockInicial && count < stockMaximo) {
       setCount(count + 1);
     } else
@@ -15,33 +15,33 @@ function ItemContador({ stockInicial, stockMaximo, addCart }) {
         "No se puede agregar otro elemento, por lo que se termino el stock"
       );
   };
-  const disminuir = () => {
+  const dimItem = () => {
     if (count > stockInicial) setCount(count - 1);
     else alert("¿Quiere poner un Stock negativo?");
   };
   return (
     <div>
       <div className="d-flex flex-column bd-highlight mb-3">
-        <div className=" bd-highlight">
-          <span>la cantidad de unidad: {count}</span>
-        </div>
+        <div className=" bd-highlight"></div>
         <div className=" bd-highlight">
           <button
             type="button"
             className="btn btn-success p-2 m-2"
-            onClick={disminuir}
+            onClick={dimItem}
           >
             {" "}
-            <DownArrow />{" "}
+            -{" "}
           </button>
+          <span> {count} </span>
           <button
             type="button"
             className="btn btn-success  p-2 m-2"
-            onClick={aumenta}
+            onClick={sumItem}
           >
             {" "}
-            <UpArrow />
+            +
           </button>
+          <p>Cantidades disponibles: {stockMaximo}</p>
         </div>
         <div className="  bd-highlight">
           <DinamicButton addCart={addCart} count={count} />

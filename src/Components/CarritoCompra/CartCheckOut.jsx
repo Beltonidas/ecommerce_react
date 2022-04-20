@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 function CartCheckOut({
   dataForm,
@@ -7,6 +7,7 @@ function CartCheckOut({
   setValidateEmail,
   generarOrden,
 }) {
+  const [imputsValidates, setImputsValidates] = useState(false);
   //Quedan validar los inputs y ver el tema del id de la compra final..
   const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
@@ -31,6 +32,19 @@ function CartCheckOut({
   };
 
   const validateInput = () => {
+    //Valido que los cmapos no sean nulos
+    if (
+      dataForm.name !== "" &&
+      expresiones.nombre.test(dataForm.name) &&
+      dataForm.phone !== "" &&
+      expresiones.telefono.test(dataForm.phone) &&
+      dataForm.phone !== "" &&
+      dataForm.email !== "" &&
+      validateEmail.campo !== ""
+    )
+      setImputsValidates(true);
+
+    //Valido que el mail sea optimo
     if (
       expresiones.correo.test(validateEmail.campo) &&
       dataForm.email === validateEmail.campo
@@ -53,6 +67,8 @@ function CartCheckOut({
             placeholder="Name"
             value={dataForm.name}
             onChange={handleChange}
+            onKeyUp={validateInput}
+            onBlur={validateInput}
           />
         </div>
         <br />
@@ -62,9 +78,11 @@ function CartCheckOut({
             className=""
             type="text"
             name="phone"
-            placeholder="Phone"
+            placeholder="Phone: 7 --> 14 num"
             value={dataForm.phone}
             onChange={handleChange}
+            onKeyUp={validateInput}
+            onBlur={validateInput}
           />
         </div>
         <br />
@@ -78,6 +96,8 @@ function CartCheckOut({
             placeholder="Tu e-mail"
             value={dataForm.email}
             onChange={handleChange}
+            onKeyUp={validateInput}
+            onBlur={validateInput}
           />
         </div>
         <br />
@@ -100,14 +120,19 @@ function CartCheckOut({
           <p className="text-success">Los mails conciden</p>
         )}
         <br />
-        {/* Me queda definir la logica para que todos los campos esten llenos y luego aceptar */}
-        <button
-          type="button"
-          className="btn btn-success"
-          onClick={generarOrden}
-        >
-          ¡Comprar Ahora!
-        </button>
+        {/* Me queda definir la logica para que todos los campos esten llenos y luego aceptar */
+
+        imputsValidates && validateEmail.valido ? (
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={generarOrden}
+          >
+            ¡Comprar Ahora!
+          </button>
+        ) : (
+          <p>Termine de llenar el formulario, para realizar la compra</p>
+        )}
       </form>
     </div>
   );

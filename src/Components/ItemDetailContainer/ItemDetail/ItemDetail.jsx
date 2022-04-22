@@ -5,6 +5,8 @@ import ItemContador from "../../ItemListContainer/ItemContador";
 function ItemDetail({ item }) {
   const { addToCart, cartList } = useCartContex();
 
+  //cambiar los textos que se visualizan en la pantalla
+
   const addCart = (cant) => {
     addToCart({ ...item, cantidad: cant });
   };
@@ -19,7 +21,7 @@ function ItemDetail({ item }) {
             className="img-fluid rounded  max-width: 100% h-50"
             alt=""
           />
-          <p>Descripcion simple</p>
+          <p>Description</p>
         </div>
         <div className="col-2">
           <h6>Price: {item.precio} USD</h6>

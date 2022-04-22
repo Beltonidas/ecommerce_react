@@ -9,13 +9,13 @@ const InputCount = () => {
       <div class="col">
         <Link to="/Cart">
           <button className="btn btn-success p-2 m-2">
-            Ir al Carrito <ShoppingCartIcon />
+            Go to cart <ShoppingCartIcon />
           </button>
         </Link>
       </div>
       <div class="col">
         <Link to="/Home">
-          <button className="btn btn-success p-2 m-2">Seguir comprando</button>
+          <button className="btn btn-success p-2 m-2">Keep boying</button>
         </Link>
       </div>
     </div>
@@ -35,7 +35,7 @@ const ButtonCount = ({ handleInter, count, addCart }) => {
         addItemCart();
       }}
     >
-      Agregar al carrito
+      Add to Cart
     </button>
   );
 };

@@ -26,7 +26,7 @@ function ItemDetailContainer() {
   return (
     <div>
       {!boolean ? (
-        <Loading texto={"Cargando Elemento.."} />
+        <Loading texto={"Loading Elements.."} />
       ) : (
         <ItemDetail item={element} />
       )}

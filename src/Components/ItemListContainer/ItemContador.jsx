@@ -7,6 +7,10 @@ function ItemContador({ stockInicial, stockMaximo, addCart }) {
   //Logica para controlar el stock
   const [count, setCount] = useState(stockInicial);
   // función flecha que aumenta el valor de la función "setCount"
+
+  //queda definir un estado para cuando puslas en el boton de agregar al carrito para que deaparezca la cantidad a agregar
+
+  //tambien queda cambiar las palabras en español y que en la pantalla quede todo en ingles
   const sumItem = () => {
     if (count >= stockInicial && count < stockMaximo) {
       setCount(count + 1);
@@ -41,7 +45,7 @@ function ItemContador({ stockInicial, stockMaximo, addCart }) {
             {" "}
             +
           </button>
-          <p>Cantidades disponibles: {stockMaximo}</p>
+          <p> Available Stock: {stockMaximo}</p>
         </div>
         <div className="  bd-highlight">
           <DinamicButton addCart={addCart} count={count} />

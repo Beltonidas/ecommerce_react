@@ -17,6 +17,7 @@ function Cart() {
     valido: null,
   });
 
+  //puedo poner un dispay flex para organizar las subcategorias en la misma linea, para que quedem todos los items iguales
   // Destructuring de cartContext
   const { cartList, removeElementCartId, clearCartList } = useCartContex();
 
@@ -26,9 +27,9 @@ function Cart() {
   //Lista de items
   const listItemCartList = cartList.map((element) => (
     <li className="list-group-item list-group-item-success" key={element.id}>
-      <span className="m-2 ">Nombre Producto: {element.name}</span>
-      <span className="m-2">Cantidad: {element.cantidad}</span>
-      <span className="m-2">Precio: {element.precio}</span>
+      <span className="m-2 ">Name Product: {element.name}</span>
+      <span className="m-2">Amount: {element.cantidad}</span>
+      <span className="m-2">Price: {element.precio}</span>
       <span className="m-2">SubTotal: {element.precio * element.cantidad}</span>
       <button
         type="button"
@@ -114,11 +115,11 @@ function Cart() {
                 className="btn btn-success"
                 onClick={clearCartList}
               >
-                Eliminar el Carrito
+                Delete all cart
               </button>
             </div>
           </div>
-          <h4 className="mt-5">Total a pagar: {sumTotalCart}</h4>
+          <h4 className="mt-5">Total to pay: {sumTotalCart}</h4>
           <div>
             {!cartCheckOut ? (
               <div className="container">
@@ -127,12 +128,12 @@ function Cart() {
                   className="btn btn-success mt-5"
                   onClick={setCartOut}
                 >
-                  Terminar la compra
+                  Finish the Purchase
                 </button>
               </div>
             ) : (
               <div className="container">
-                <h5>Ingrese sus datos para poder finalizar la compra</h5>
+                <h5>Complete the form to finish the purchase</h5>
                 {
                   <CartCheckOut
                     dataForm={dataForm}
@@ -151,9 +152,9 @@ function Cart() {
           <CartEmpty />
           {alertStore ? (
             <div className="container alert alert-success" role="alert">
-              <h3> Felicitaciones por su compra!</h3>
+              <h3>Congratulation for your purchase!</h3>
               <br />
-              <span>id de la compra, {idOrder}</span>
+              <span>Your id the purchase, {idOrder}</span>
             </div>
           ) : (
             <></>

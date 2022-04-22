@@ -43,7 +43,7 @@ function ItemsLIstContainer({ filtro }) {
     <div>
       <p>{id}</p>
       {!boolean ? (
-        <Loading texto={"Cargando Elementos..."} />
+        <Loading texto={"Loading Elements..."} />
       ) : (
         <ItemList productos={prods} />
       )}

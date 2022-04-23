@@ -81,8 +81,6 @@ function Cart() {
     setAlertStore(true);
   };
 
-  //console.log("mi id a operar es: ", idOrder);
-
   // Queda implementar actualizar el stock
   // const updateStock = () => {
   //   const db = getFirestore();
